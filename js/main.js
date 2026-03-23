@@ -50,23 +50,38 @@ function applyLang(lang) {
 })();
 
 // --- Scroll reveal animations ---
+// Step 1: Hide elements immediately via JS (not CSS, to avoid stuck-invisible bugs)
+// Step 2: IntersectionObserver reveals them with a transition
 (function() {
+  const reveals = document.querySelectorAll('.reveal');
+  const staggers = document.querySelectorAll('.stagger');
+
+  // Hide all elements first
+  reveals.forEach(el => el.classList.add('reveal--hidden'));
+  staggers.forEach(el => el.classList.add('stagger--hidden'));
+
+  // Force a reflow so the browser paints the hidden state
+  document.body.offsetHeight;
+
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        // Delay by one frame so the browser renders opacity:0 first,
-        // then transitions to opacity:1 — avoids same-frame skip
-        requestAnimationFrame(() => {
-          requestAnimationFrame(() => {
-            entry.target.classList.add('visible');
-          });
-        });
-        observer.unobserve(entry.target);
+        const el = entry.target;
+        if (el.classList.contains('reveal')) {
+          el.classList.remove('reveal--hidden');
+          el.classList.add('reveal--visible');
+        }
+        if (el.classList.contains('stagger')) {
+          el.classList.remove('stagger--hidden');
+          el.classList.add('stagger--visible');
+        }
+        observer.unobserve(el);
       }
     });
   }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-  document.querySelectorAll('.reveal, .stagger').forEach(el => observer.observe(el));
+  reveals.forEach(el => observer.observe(el));
+  staggers.forEach(el => observer.observe(el));
 })();
 
 // --- Portfolio filter ---

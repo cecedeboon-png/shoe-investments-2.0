@@ -597,33 +597,35 @@ h3 {
 }
 
 /* --- Animations --- */
-@keyframes revealUp {
-  from { opacity: 0; transform: translateY(24px); }
-  to { opacity: 1; transform: translateY(0); }
+/* Elements start visible. JS hides them, then IntersectionObserver reveals. */
+.reveal--hidden {
+  opacity: 0 !important;
+  transform: translateY(24px);
 }
 
-.reveal {
+.reveal--visible {
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+.stagger--hidden > * {
   opacity: 0;
+  transform: translateY(16px);
 }
 
-.reveal.visible {
-  animation: revealUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+.stagger--visible > * {
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  opacity: 1;
+  transform: translateY(0);
 }
 
-/* Stagger children */
-.stagger > * {
-  opacity: 0;
-}
-
-.stagger.visible > * {
-  animation: revealUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-.stagger.visible > *:nth-child(1) { animation-delay: 0ms; }
-.stagger.visible > *:nth-child(2) { animation-delay: 80ms; }
-.stagger.visible > *:nth-child(3) { animation-delay: 160ms; }
-.stagger.visible > *:nth-child(4) { animation-delay: 240ms; }
-.stagger.visible > *:nth-child(5) { animation-delay: 320ms; }
+.stagger--visible > *:nth-child(2) { transition-delay: 80ms; }
+.stagger--visible > *:nth-child(3) { transition-delay: 160ms; }
+.stagger--visible > *:nth-child(4) { transition-delay: 240ms; }
+.stagger--visible > *:nth-child(5) { transition-delay: 320ms; }
 
 /* --- Portfolio initials fallback --- */
 .portfolio-card__initials {
