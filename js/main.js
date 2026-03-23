@@ -1,195 +1,90 @@
-/* ============================================================
-   SHOE INVESTMENTS — main.js
-   Handles: language toggle, mobile nav, dropdowns, bio expand
-   ============================================================ */
+/* ============================================
+   Shoe Investments 2.0 — Main JS
+   ============================================ */
 
-(function () {
-  'use strict';
-
-  /* ---------- Language Toggle ---------- */
-  const translations = {
-    /* nav */
-    'nav-over-ons':    { nl: 'Over Ons',       en: 'About Us' },
-    'nav-team':        { nl: 'Team',            en: 'Team' },
-    'nav-esg':         { nl: 'ESG',             en: 'ESG' },
-    'nav-investeringen': { nl: 'Investeringen', en: 'Investments' },
-    'nav-portfolio':   { nl: 'Portfolio',       en: 'Portfolio' },
-    'nav-fondsen':     { nl: 'Fondsen',         en: 'Funds' },
-    'nav-stage':       { nl: 'Stage',           en: 'Internship' },
-    'nav-actueel':     { nl: 'Actueel',         en: 'News' },
-    'nav-contact':     { nl: 'Neem Contact Op', en: 'Contact Us' },
-  };
-
-  let currentLang = localStorage.getItem('shoe-lang') || 'en';
-
-  function applyLanguage(lang) {
-    currentLang = lang;
-    localStorage.setItem('shoe-lang', lang);
-
-    /* Switch all data-nl / data-en elements */
-    document.querySelectorAll('[data-nl]').forEach(el => {
-      el.textContent = el.getAttribute('data-' + lang) || el.getAttribute('data-nl');
-    });
-
-    /* Switch all data-nl-html / data-en-html elements (allow HTML) */
-    document.querySelectorAll('[data-nl-html]').forEach(el => {
-      el.innerHTML = el.getAttribute('data-' + lang + '-html') || el.getAttribute('data-nl-html');
-    });
-
-    /* Update lang buttons */
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-      btn.classList.toggle('active', btn.dataset.lang === lang);
-    });
-
-    /* Update html lang attr */
-    document.documentElement.lang = lang;
-  }
-
-  function initLangToggle() {
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-      btn.addEventListener('click', () => applyLanguage(btn.dataset.lang));
-    });
-    applyLanguage(currentLang);
-  }
-
-  /* ---------- Mobile Nav ---------- */
-  function initMobileNav() {
-    const hamburger = document.querySelector('.hamburger');
-    const mobileNav = document.querySelector('.mobile-nav');
-    if (!hamburger || !mobileNav) return;
-
-    hamburger.addEventListener('click', () => {
-      const isOpen = hamburger.classList.toggle('open');
-      mobileNav.classList.toggle('open', isOpen);
-      document.body.style.overflow = isOpen ? 'hidden' : '';
-    });
-
-    /* Close on link click */
-    mobileNav.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        hamburger.classList.remove('open');
-        mobileNav.classList.remove('open');
-        document.body.style.overflow = '';
+// --- Scroll-aware nav ---
+(function() {
+  const nav = document.getElementById('nav');
+  if (!nav) return;
+  
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        nav.classList.toggle('scrolled', window.scrollY > 40);
+        ticking = false;
       });
-    });
-
-    /* Close on outside click */
-    document.addEventListener('click', (e) => {
-      if (!hamburger.contains(e.target) && !mobileNav.contains(e.target)) {
-        hamburger.classList.remove('open');
-        mobileNav.classList.remove('open');
-        document.body.style.overflow = '';
-      }
-    });
-  }
-
-  /* ---------- Bio Expand (Team page) ---------- */
-  function initBioToggle() {
-    document.querySelectorAll('.bio-toggle').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const bio = btn.previousElementSibling;
-        const isExpanded = bio.classList.toggle('expanded');
-        btn.setAttribute('data-nl', isExpanded ? 'Lees minder' : 'Lees meer');
-        btn.setAttribute('data-en', isExpanded ? 'Read less' : 'Read more');
-        btn.textContent = btn.getAttribute('data-' + currentLang);
-      });
-    });
-  }
-
-  /* ---------- Smooth scroll for anchor links ---------- */
-  function initSmoothScroll() {
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-      a.addEventListener('click', e => {
-        const target = document.querySelector(a.getAttribute('href'));
-        if (target) {
-          e.preventDefault();
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      });
-    });
-  }
-
-  /* ---------- About page: rotating portfolio image ---------- */
-  function initPortfolioImageRotator() {
-    const rotator = document.querySelector('.about-portfolio-rotator[data-rotate-images]');
-    if (!rotator) return;
-
-    const images = (rotator.getAttribute('data-rotate-images') || '')
-      .split('|')
-      .map(url => url.trim())
-      .filter(Boolean);
-
-    if (images.length < 2) return;
-
-    let current = 0;
-    const switchDelayMs = 3800;
-    const fadeDelayMs = 180;
-
-    window.setInterval(() => {
-      current = (current + 1) % images.length;
-      rotator.classList.add('fade-out');
-      window.setTimeout(() => {
-        rotator.src = images[current];
-        rotator.classList.remove('fade-out');
-      }, fadeDelayMs);
-    }, switchDelayMs);
-  }
-
-  /* ---------- Active nav link ---------- */
-  function setActiveNav() {
-    const path = window.location.pathname.replace(/\/$/, '') || '/index.html';
-    document.querySelectorAll('.nav-link[href]').forEach(link => {
-      const href = link.getAttribute('href').replace(/\/$/, '');
-      if (path.endsWith(href) && href !== '') {
-        link.classList.add('active');
-      }
-    });
-  }
-
-  /* ---------- Sticky Nav Scroll ---------- */
-  function initScrollNav() {
-    const navbar = document.querySelector('.navbar');
-    if (!navbar) return;
-
-    function onScroll() {
-      if (window.scrollY > 20) {
-        navbar.classList.add('scrolled');
-      } else {
-        navbar.classList.remove('scrolled');
-      }
+      ticking = true;
     }
-
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-  }
-
-  /* ---------- Scroll fade-in animations ---------- */
-  function initScrollAnimations() {
-    const els = document.querySelectorAll('.fade-in');
-    if (!els.length) return;
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1 });
-
-    els.forEach(el => observer.observe(el));
-  }
-
-  /* ---------- Init ---------- */
-  document.addEventListener('DOMContentLoaded', () => {
-    initLangToggle();
-    initMobileNav();
-    initBioToggle();
-    initSmoothScroll();
-    initPortfolioImageRotator();
-    setActiveNav();
-    initScrollNav();
-    initScrollAnimations();
   });
-
 })();
+
+// --- Language toggle ---
+function setLang(lang) {
+  localStorage.setItem('shoe-lang', lang);
+  applyLang(lang);
+}
+
+function applyLang(lang) {
+  document.documentElement.lang = lang;
+  
+  document.querySelectorAll('[data-en]').forEach(el => {
+    const val = el.getAttribute('data-' + lang);
+    if (val) el.textContent = val;
+  });
+  
+  document.querySelectorAll('[data-en-html]').forEach(el => {
+    const val = el.getAttribute('data-' + lang + '-html');
+    if (val) el.innerHTML = val;
+  });
+  
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.lang === lang);
+  });
+}
+
+// Apply saved language on load
+(function() {
+  const lang = localStorage.getItem('shoe-lang') || 'en';
+  applyLang(lang);
+})();
+
+// --- Scroll reveal animations ---
+(function() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.reveal, .stagger').forEach(el => observer.observe(el));
+})();
+
+// --- Portfolio filter ---
+function filterPortfolio(type, btn) {
+  const cards = document.querySelectorAll('.portfolio-card');
+  cards.forEach(card => {
+    if (type === 'all' || card.dataset.type === type) {
+      card.style.display = '';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+  
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+}
+
+// --- Smooth scroll for anchor links ---
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});

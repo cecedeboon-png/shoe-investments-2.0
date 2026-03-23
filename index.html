@@ -1,346 +1,350 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shoe Investments — A Dutch family office with global venture reach</title>
-  <meta name="description" content="Shoe Investments is the investment company of Pieter Schoen. Active in Anthropic, Revolut, Airwallex, and 30+ global funds." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shoe Investments — A Dutch Family Office with Global Venture Reach</title>
+  <meta name="description" content="Shoe Investments is the family office of Pieter Schoen. Active in Anthropic, Revolut, Airwallex, and 30+ global funds.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="assets/logo-shoe.svg">
 </head>
 <body>
 
-<!-- ===== NAVBAR ===== -->
-<nav class="navbar">
-  <div class="container">
-    <a href="index.html" class="nav-logo">
-      <img src="assets/logo-shoe.svg" alt="Shoe Investments" height="32" style="height:32px;width:auto;filter:brightness(0) invert(1);">
+<!-- ===== NAV ===== -->
+<nav class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__logo">
+      <img src="assets/logo-shoe.svg" alt="Shoe Investments">
+      SHOE INVESTMENTS
     </a>
 
-    <ul class="nav-links">
-      <li class="nav-item">
-        <span class="nav-link" tabindex="0">
-          <span data-en="About" data-nl="Over Ons">About</span>
-          <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-        </span>
-        <div class="dropdown">
-          <a href="over-ons.html" data-en="About Us" data-nl="Over Ons">About Us</a>
-          <a href="team.html" data-en="Team" data-nl="Team">Team</a>
-        </div>
-      </li>
-      <li class="nav-item">
-        <span class="nav-link" tabindex="0">
-          <span data-en="Investments" data-nl="Investeringen">Investments</span>
-          <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-        </span>
-        <div class="dropdown">
-          <a href="portfolio.html" data-en="Portfolio" data-nl="Portfolio">Portfolio</a>
-          <a href="fondsen.html" data-en="Funds" data-nl="Fondsen">Funds</a>
-        </div>
-      </li>
-      <li><a href="esg.html" class="nav-link">ESG</a></li>
-      <li><a href="stage.html" class="nav-link" data-en="Careers" data-nl="Stage">Careers</a></li>
-      <li><a href="actueel.html" class="nav-link" data-en="News" data-nl="Actueel">News</a></li>
+    <ul class="nav__links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="portfolio.html">Investments</a></li>
+      <li><a href="team.html">Team</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
     </ul>
 
-    <div class="nav-right">
-      <div class="lang-toggle">
-        <button class="lang-btn active" data-lang="en">EN</button>
-        <button class="lang-btn" data-lang="nl">NL</button>
+    <div class="nav__right">
+      <div class="lang-sw">
+        <button class="lang-btn active" data-lang="en" onclick="setLang('en')">EN</button>
+        <button class="lang-btn" data-lang="nl" onclick="setLang('nl')">NL</button>
       </div>
-      <a href="contact.html" class="btn btn-primary" data-en="Contact Us" data-nl="Neem Contact Op">Contact Us</a>
-      <button class="hamburger" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
+      <a href="contact.html" class="nav__cta"
+         data-en="Get in Touch" data-nl="Neem Contact Op">Get in Touch</a>
     </div>
+
+    <button class="nav__burger" onclick="document.body.classList.toggle('menu-open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
 
-<!-- Mobile Nav -->
 <div class="mobile-nav">
-  <a href="over-ons.html" data-en="About Us" data-nl="Over Ons">About Us</a>
+  <a href="index.html" data-en="Home" data-nl="Home">Home</a>
+  <a href="portfolio.html" data-en="Investments" data-nl="Investeringen">Investments</a>
   <a href="team.html" data-en="Team" data-nl="Team">Team</a>
-  <a href="esg.html">ESG</a>
-  <a href="portfolio.html" data-en="Portfolio" data-nl="Portfolio">Portfolio</a>
-  <a href="fondsen.html" data-en="Funds" data-nl="Fondsen">Funds</a>
-  <a href="stage.html" data-en="Careers" data-nl="Stage">Careers</a>
-  <a href="actueel.html" data-en="News" data-nl="Actueel">News</a>
-  <a href="contact.html" data-en="Contact Us" data-nl="Neem Contact Op">Contact Us</a>
+  <a href="about.html" data-en="About" data-nl="Over Ons">About</a>
+  <a href="contact.html" data-en="Contact" data-nl="Contact">Contact</a>
 </div>
 
 <!-- ===== HERO ===== -->
-<div class="page-content">
-  <section class="hero">
-    <div class="hero-bg"></div>
-    <div class="container">
-      <div class="hero-content">
-        <p class="hero-eyebrow">SHOE INVESTMENTS — ROTTERDAM</p>
-        <h1 data-en="A Dutch family office with global venture reach" data-nl="Een Nederlandse family office met wereldwijd bereik">A Dutch family office with global venture reach</h1>
-        <p class="hero-sub" data-en="Backed by one of the Netherlands' most successful entrepreneurs. Active in Anthropic, Revolut, Airwallex, and 30+ global funds." data-nl="Gesteund door een van de meest succesvolle ondernemers van Nederland. Actief in Anthropic, Revolut, Airwallex, en 30+ wereldwijde fondsen.">Backed by one of the Netherlands' most successful entrepreneurs. Active in Anthropic, Revolut, Airwallex, and 30+ global funds.</p>
-        <div class="hero-actions">
-          <a href="#approach" class="btn btn-primary" data-en="Explore our approach" data-nl="Onze aanpak">Explore our approach</a>
-          <a href="portfolio.html" class="btn btn-ghost" data-en="View portfolio" data-nl="Bekijk portfolio">View portfolio</a>
-        </div>
-      </div>
+<section class="hero">
+  <div class="hero__content">
+    <p class="overline reveal">Rotterdam, The Netherlands</p>
+    <h1 class="reveal">
+      <span data-en="A Dutch family office with" data-nl="Een Nederlandse family office met">A Dutch family office with</span><br>
+      <em data-en="global venture reach" data-nl="wereldwijd bereik">global venture reach</em>
+    </h1>
+    <p class="subtitle reveal"
+       data-en="Backed by one of the Netherlands' most successful entrepreneurs. Active in Anthropic, Revolut, Airwallex, and 30+ global funds."
+       data-nl="Gesteund door een van de meest succesvolle ondernemers van Nederland. Actief in Anthropic, Revolut, Airwallex, en 30+ wereldwijde fondsen.">
+      Backed by one of the Netherlands' most successful entrepreneurs. Active in Anthropic, Revolut, Airwallex, and 30+ global funds.
+    </p>
+    <div class="hero__actions reveal">
+      <a href="#approach" class="nav__cta" style="padding:14px 32px; font-size:0.9rem"
+         data-en="Explore Our Approach" data-nl="Onze Aanpak">Explore Our Approach</a>
+      <a href="portfolio.html" class="nav__cta" style="padding:14px 32px; font-size:0.9rem; background:transparent; color:var(--text-primary); border:1px solid var(--border-hover)"
+         data-en="View Portfolio" data-nl="Bekijk Portfolio">View Portfolio</a>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ===== KEY FIGURES ===== -->
-  <div class="stats-bar">
-    <div class="container">
-      <div class="stats-grid">
-        <div class="stat-item fade-in">
-          <div class="stat-number">30+</div>
-          <div class="stat-label" data-en="Fund investments across 4 continents" data-nl="Fondsinvesteringen op 4 continenten">Fund investments across 4 continents</div>
-        </div>
-        <div class="stat-item fade-in">
-          <div class="stat-number">14</div>
-          <div class="stat-label" data-en="Direct portfolio companies" data-nl="Directe portfoliobedrijven">Direct portfolio companies</div>
-        </div>
-        <div class="stat-item fade-in">
-          <div class="stat-number">$100B+</div>
-          <div class="stat-label" data-en="Combined portfolio company valuation" data-nl="Gecombineerde portfoliowaardering">Combined portfolio company valuation</div>
-        </div>
+<!-- ===== LOGO TICKER ===== -->
+<section class="ticker">
+  <p class="overline ticker__label"
+     data-en="Active in category-defining companies"
+     data-nl="Actief in toonaangevende bedrijven">Active in category-defining companies</p>
+  <div class="ticker__logos stagger">
+    <img src="https://cdn.prod.website-files.com/64ef52d4e63f78db8ad33967/69894376c89284fcd9f59bd8_Revolut-02-business-appicon-FINAL.png" alt="Revolut" title="Revolut">
+    <img src="images/anthropic-icon.png" alt="Anthropic" title="Anthropic">
+    <img src="https://cdn.prod.website-files.com/64ef52d4e63f78db8ad33967/69893e2522f2f82b48f964b3_f45b90acb1ec4000af3f827696a89359.png" alt="Airwallex" title="Airwallex">
+    <img src="https://cdn.prod.website-files.com/64ef52d4e63f78db8ad33967/68e4ed206fdc64594470c869_replit.png" alt="Replit" title="Replit">
+    <img src="https://cdn.prod.website-files.com/64ef52d4e63f78db8ad33967/69893f8f856055bb422f22c2_DSC_6189.webp" alt="Leasy" title="Leasy">
+    <img src="https://cdn.prod.website-files.com/64ef52d4e63f78db8ad33967/652d01a0c5dd1735ccb7cd17_Rectangle%2035.png" alt="Dealroom" title="Dealroom">
+    <img src="https://cdn.prod.website-files.com/64ef52d4e63f78db8ad33967/652d019f192ba076b04cb88c_Rectangle%2034.png" alt="Creative Clicks" title="Creative Clicks">
+    <img src="https://cdn.prod.website-files.com/64ef52d4e63f78db8ad33967/68e4f666d54bd090810713b0_carv.png" alt="Carv" title="Carv">
+  </div>
+</section>
+
+<!-- ===== STATS ===== -->
+<section class="section">
+  <div class="container">
+    <div class="stats reveal">
+      <div class="stat">
+        <div class="stat__number">30+</div>
+        <div class="stat__label"
+             data-en="Fund investments across 4 continents"
+             data-nl="Fondsinvesteringen op 4 continenten">Fund investments across 4 continents</div>
+      </div>
+      <div class="stat">
+        <div class="stat__number">14</div>
+        <div class="stat__label"
+             data-en="Direct portfolio companies"
+             data-nl="Directe portfoliobedrijven">Direct portfolio companies</div>
+      </div>
+      <div class="stat">
+        <div class="stat__number">$100B+</div>
+        <div class="stat__label"
+             data-en="Combined portfolio company valuation"
+             data-nl="Gecombineerde portfoliowaardering">Combined portfolio company valuation</div>
       </div>
     </div>
   </div>
+</section>
 
-  <!-- ===== NOTABLE EXPOSURE ===== -->
-  <section class="exposure-section">
-    <div class="container">
-      <p class="section-label" data-en="Portfolio Exposure" data-nl="Portfolio Exposure">Portfolio Exposure</p>
-      <h2 class="section-title fade-in" data-en="Active in category-defining companies" data-nl="Actief in toonaangevende bedrijven">Active in category-defining companies</h2>
+<!-- ===== THREE PILLARS ===== -->
+<section class="section" id="approach">
+  <div class="container">
+    <p class="overline reveal"
+       data-en="Our Approach" data-nl="Onze Aanpak">Our Approach</p>
+    <h2 class="reveal" style="margin-top:16px; max-width:600px"
+        data-en="Three ways we deploy capital"
+        data-nl="Drie manieren waarop wij kapitaal inzetten">Three ways we deploy capital</h2>
 
-      <div class="exposure-grid">
-        <!-- Row 1: Via Funds & SPVs -->
-        <div class="fade-in">
-          <p class="exposure-row-label" data-en="Via Funds & SPVs" data-nl="Via Fondsen & SPV's">Via Funds & SPVs</p>
-          <div class="exposure-logos">
-            <a href="portfolio/anthropic.html"><span>Anthropic</span></a>
-            <a href="portfolio/revolut.html"><span>Revolut</span></a>
-            <a href="portfolio/airwallex.html"><span>Airwallex</span></a>
-            <a href="portfolio/leasy.html"><span>Leasy</span></a>
-            <a href="portfolio/replit.html"><span>Replit</span></a>
-          </div>
-        </div>
-
-        <!-- Row 2: Direct Portfolio -->
-        <div class="fade-in">
-          <p class="exposure-row-label" data-en="Direct Portfolio" data-nl="Direct Portfolio">Direct Portfolio</p>
-          <div class="exposure-logos">
-            <a href="portfolio/creative-clicks.html"><span>Creative Clicks</span></a>
-            <a href="portfolio/dealroom.html"><span>Dealroom</span></a>
-            <a href="portfolio/swishfund.html"><span>Swishfund</span></a>
-            <a href="portfolio/colect.html"><span>Colect</span></a>
-            <a href="portfolio/equalture.html"><span>Equalture</span></a>
-            <a href="portfolio/carv.html"><span>Carv</span></a>
-          </div>
-        </div>
-
-        <!-- Row 3: Fund Partners -->
-        <div class="fade-in">
-          <p class="exposure-row-label" data-en="Fund Partners" data-nl="Fund Partners">Fund Partners</p>
-          <div class="exposure-logos">
-            <span>Insiders Ventures</span>
-            <span>Sky9 Capital</span>
-            <span>Slingshot Ventures</span>
-            <span>Forbion</span>
-          </div>
-        </div>
+    <div class="pillars reveal">
+      <div class="pillar">
+        <div class="pillar__icon">→</div>
+        <h3 data-en="Direct Investments" data-nl="Directe Investeringen">Direct Investments</h3>
+        <p data-en="We invest €2–10M in Dutch tech scale-ups with proven product-market fit. Hands-on, as co-entrepreneurs. We build alongside founders for the long term."
+           data-nl="Wij investeren €2–10M in Nederlandse tech scale-ups met bewezen product-market fit. Hands-on, als medeondernemer. Wij bouwen mee voor de lange termijn.">
+          We invest €2–10M in Dutch tech scale-ups with proven product-market fit. Hands-on, as co-entrepreneurs. We build alongside founders for the long term.
+        </p>
       </div>
-    </div>
-  </section>
-
-  <!-- ===== THREE PILLARS ===== -->
-  <section class="section-grey" id="approach">
-    <div class="container">
-      <p class="section-label" data-en="Our Approach" data-nl="Onze Aanpak">Our Approach</p>
-      <h2 class="section-title fade-in" data-en="Three ways we deploy capital" data-nl="Drie manieren waarop wij kapitaal inzetten">Three ways we deploy capital</h2>
-      <br>
-      <div class="pillars-grid">
-        <div class="pillar fade-in">
-          <div class="pillar-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
-          </div>
-          <h4 data-en="Direct Investments" data-nl="Directe Investeringen">Direct Investments</h4>
-          <p data-en="We invest €2-10M in Dutch tech scale-ups with proven product-market fit. Hands-on, as co-entrepreneurs." data-nl="Wij investeren €2-10M in Nederlandse tech scale-ups met bewezen product-market fit. Hands-on, als medeondernemer.">We invest €2-10M in Dutch tech scale-ups with proven product-market fit. Hands-on, as co-entrepreneurs.</p>
-        </div>
-        <div class="pillar fade-in">
-          <div class="pillar-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-          </div>
-          <h4>Fund-to-Fund</h4>
-          <p data-en="Through select funds, we build exposure to pre-seed and seed AI technology worldwide. From Silicon Valley to Singapore." data-nl="Via selecte fondsen bouwen wij exposure op in pre-seed en seed AI-technologie wereldwijd. Van Silicon Valley tot Singapore.">Through select funds, we build exposure to pre-seed and seed AI technology worldwide. From Silicon Valley to Singapore.</p>
-        </div>
-        <div class="pillar fade-in">
-          <div class="pillar-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-          </div>
-          <h4>SPV Follow-on</h4>
-          <p data-en="When a portfolio company breaks out, we double down through dedicated SPVs. Fast, decisive, without fund-structure bureaucracy." data-nl="Wanneer een portfoliobedrijf uitbreekt, investeren wij door via dedicated SPV's. Snel, besluitvaardig, zonder bureaucratie.">When a portfolio company breaks out, we double down through dedicated SPVs. Fast, decisive, without fund-structure bureaucracy.</p>
-        </div>
+      <div class="pillar">
+        <div class="pillar__icon">◎</div>
+        <h3 data-en="Fund-to-Fund" data-nl="Fund-to-Fund">Fund-to-Fund</h3>
+        <p data-en="Through select funds like Insiders Ventures, Sky9 Capital, and Slingshot, we build exposure to pre-seed and seed AI technology worldwide. From Silicon Valley to Singapore."
+           data-nl="Via selecte fondsen zoals Insiders Ventures, Sky9 Capital en Slingshot bouwen wij exposure op in pre-seed en seed AI-technologie wereldwijd. Van Silicon Valley tot Singapore.">
+          Through select funds like Insiders Ventures, Sky9 Capital, and Slingshot, we build exposure to pre-seed and seed AI technology worldwide. From Silicon Valley to Singapore.
+        </p>
       </div>
-    </div>
-  </section>
-
-  <!-- ===== SELECTED PORTFOLIO ===== -->
-  <section>
-    <div class="container">
-      <p class="section-label" data-en="Our investments" data-nl="Onze investeringen">Our investments</p>
-      <h2 class="section-title fade-in" data-en="Selected portfolio" data-nl="Geselecteerd portfolio">Selected portfolio</h2>
-      <p class="section-intro" data-en="We invest in fast-growing and scalable companies led by top entrepreneurs." data-nl="Wij investeren in snelgroeiende en schaalbare ondernemingen geleid door top ondernemers.">We invest in fast-growing and scalable companies led by top entrepreneurs.</p>
-      <div class="portfolio-grid">
-        <a href="portfolio/anthropic.html" class="portfolio-card" data-type="current">
-          <img src="images/anthropic-icon.svg" alt="Anthropic" class="portfolio-card-img" style="object-fit:contain;background:#1a1a1a;padding:24px;" onerror="this.style.display='none'">
-          <div class="portfolio-card-body">
-            <div class="portfolio-company">Anthropic</div>
-            <div class="portfolio-meta" data-en="AI Safety" data-nl="AI-veiligheid">AI Safety</div>
-            <span class="portfolio-badge badge-current" data-en="Current" data-nl="Huidig">Current</span>
-          </div>
-        </a>
-        <a href="portfolio/revolut.html" class="portfolio-card" data-type="current">
-          <img src="https://cdn.prod.website-files.com/64ef52d4e63f78db8ad33967/69894376c89284fcd9f59bd8_Revolut-02-business-appicon-FINAL.png" alt="Revolut" class="portfolio-card-img" onerror="this.style.display='none'">
-          <div class="portfolio-card-body">
-            <div class="portfolio-company">Revolut</div>
-            <div class="portfolio-meta" data-en="Fintech" data-nl="Fintech">Fintech</div>
-            <span class="portfolio-badge badge-current" data-en="Current" data-nl="Huidig">Current</span>
-          </div>
-        </a>
-        <a href="portfolio/airwallex.html" class="portfolio-card" data-type="current">
-          <img src="https://cdn.prod.website-files.com/64ef52d4e63f78db8ad33967/69893e2522f2f82b48f964b3_f45b90acb1ec4000af3f827696a89359.png" alt="Airwallex" class="portfolio-card-img" onerror="this.style.display='none'">
-          <div class="portfolio-card-body">
-            <div class="portfolio-company">Airwallex</div>
-            <div class="portfolio-meta" data-en="Payment Infrastructure" data-nl="Betalingsinfrastructuur">Payment Infrastructure</div>
-            <span class="portfolio-badge badge-current" data-en="Current" data-nl="Huidig">Current</span>
-          </div>
-        </a>
-        <a href="portfolio/replit.html" class="portfolio-card" data-type="current">
-          <img src="https://cdn.prod.website-files.com/64ef52d4e63f78db8ad33967/68e4ed206fdc64594470c869_replit.png" alt="Replit" class="portfolio-card-img" onerror="this.style.display='none'">
-          <div class="portfolio-card-body">
-            <div class="portfolio-company">Replit</div>
-            <div class="portfolio-meta" data-en="Developer Tools" data-nl="Developer Tools">Developer Tools</div>
-            <span class="portfolio-badge badge-current" data-en="Current" data-nl="Huidig">Current</span>
-          </div>
-        </a>
-        <a href="portfolio/carv.html" class="portfolio-card" data-type="current">
-          <img src="https://cdn.prod.website-files.com/64ef52d4e63f78db8ad33967/68e4f666d54bd090810713b0_carv.png" alt="Carv" class="portfolio-card-img" onerror="this.style.display='none'">
-          <div class="portfolio-card-body">
-            <div class="portfolio-company">Carv</div>
-            <div class="portfolio-meta" data-en="HR Tech" data-nl="HR Tech">HR Tech</div>
-            <span class="portfolio-badge badge-current" data-en="Current" data-nl="Huidig">Current</span>
-          </div>
-        </a>
-        <a href="portfolio/equalture.html" class="portfolio-card" data-type="current">
-          <img src="https://cdn.prod.website-files.com/64ef52d4e63f78db8ad33967/6555ae7436161867d2702cae_Image_(8).png" alt="Equalture" class="portfolio-card-img" onerror="this.style.display='none'">
-          <div class="portfolio-card-body">
-            <div class="portfolio-company">Equalture</div>
-            <div class="portfolio-meta" data-en="HR Tech" data-nl="HR Tech">HR Tech</div>
-            <span class="portfolio-badge badge-current" data-en="Current" data-nl="Huidig">Current</span>
-          </div>
-        </a>
-        <a href="portfolio/loop.html" class="portfolio-card" data-type="current">
-          <img src="https://cdn.prod.website-files.com/64ef52d4e63f78db8ad33967/6555ae752666d124cef70362_Image_(9).png" alt="Loop" class="portfolio-card-img" onerror="this.style.display='none'">
-          <div class="portfolio-card-body">
-            <div class="portfolio-company">Loop</div>
-            <div class="portfolio-meta" data-en="Sustainable Materials" data-nl="Duurzame materialen">Sustainable Materials</div>
-            <span class="portfolio-badge badge-current" data-en="Current" data-nl="Huidig">Current</span>
-          </div>
-        </a>
-        <a href="portfolio/swishfund.html" class="portfolio-card" data-type="current">
-          <img src="https://cdn.prod.website-files.com/64ef52d4e63f78db8ad33967/68e4ee9a5b5c69653bcb5e36_swishfund.png" alt="Swishfund" class="portfolio-card-img" onerror="this.style.display='none'">
-          <div class="portfolio-card-body">
-            <div class="portfolio-company">Swishfund</div>
-            <div class="portfolio-meta" data-en="SME Finance" data-nl="MKB-financiering">SME Finance</div>
-            <span class="portfolio-badge badge-current" data-en="Current" data-nl="Huidig">Current</span>
-          </div>
-        </a>
+      <div class="pillar">
+        <div class="pillar__icon">⚡</div>
+        <h3 data-en="SPV Follow-on" data-nl="SPV Follow-on">SPV Follow-on</h3>
+        <p data-en="When a portfolio company breaks out, we double down through dedicated SPVs. Fast, decisive, without fund-structure bureaucracy. This is how we built positions in Anthropic and Revolut."
+           data-nl="Wanneer een portfoliobedrijf uitbreekt, investeren wij door via dedicated SPV's. Snel, besluitvaardig, zonder bureaucratie. Zo bouwden wij posities op in Anthropic en Revolut.">
+          When a portfolio company breaks out, we double down through dedicated SPVs. Fast, decisive, without fund-structure bureaucracy. This is how we built positions in Anthropic and Revolut.
+        </p>
       </div>
-      <div style="margin-top:32px;">
-        <a href="portfolio.html" class="btn btn-ghost" data-en="View full portfolio →" data-nl="Bekijk volledig portfolio →">View full portfolio →</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== WHY PARTNER WITH US ===== -->
-  <section class="section-grey">
-    <div class="container">
-      <p class="section-label" data-en="For Fund Managers" data-nl="Voor Fund Managers">For Fund Managers</p>
-      <h2 class="section-title fade-in" data-en="Why leading funds choose us as LP" data-nl="Waarom toonaangevende fondsen ons als LP kiezen">Why leading funds choose us as LP</h2>
-      <br>
-      <div class="partner-grid">
-        <div class="partner-card fade-in">
-          <div class="partner-card-number">01</div>
-          <h3 data-en="Speed" data-nl="Snelheid">Speed</h3>
-          <p data-en="We commit in days, not quarters. Our evergreen structure means no IC approvals or fundraising delays." data-nl="Wij committen in dagen, niet kwartalen. Onze evergreen structuur betekent geen IC-goedkeuringen of fundraising vertragingen.">We commit in days, not quarters. Our evergreen structure means no IC approvals or fundraising delays.</p>
-        </div>
-        <div class="partner-card fade-in">
-          <div class="partner-card-number">02</div>
-          <h3 data-en="Smart Capital" data-nl="Smart Capital">Smart Capital</h3>
-          <p data-en="Operational experience and a broad European network. We add value beyond the capital we deploy." data-nl="Operationele ervaring en een breed Europees netwerk. Wij voegen waarde toe buiten het kapitaal dat we inzetten.">Operational experience and a broad European network. We add value beyond the capital we deploy.</p>
-        </div>
-        <div class="partner-card fade-in">
-          <div class="partner-card-number">03</div>
-          <h3 data-en="Long-term Partner" data-nl="Langetermijnpartner">Long-term Partner</h3>
-          <p data-en="No exit pressure. We think in decades, not fund cycles. Several portfolio companies have been with us for over 10 years." data-nl="Geen exit-druk. Wij denken in decennia, niet in fund cycles. Meerdere portfoliobedrijven zitten al meer dan 10 jaar in onze portefeuille.">No exit pressure. We think in decades, not fund cycles. Several portfolio companies have been with us for over 10 years.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== CTA ===== -->
-  <div class="cta-banner">
-    <div class="container">
-      <h2 data-en="Let's explore what we can build together" data-nl="Laten we verkennen wat we samen kunnen bouwen">Let's explore what we can build together</h2>
-      <p data-en="Whether you're a fund manager or an entrepreneur, we'd love to hear from you." data-nl="Of u nu fund manager of ondernemer bent, wij horen graag van u.">Whether you're a fund manager or an entrepreneur, we'd love to hear from you.</p>
-      <a href="contact.html" class="btn btn-primary" data-en="Contact Us" data-nl="Neem Contact Op">Contact Us</a>
     </div>
   </div>
+</section>
 
-  <!-- ===== FOOTER ===== -->
-  <footer>
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <a href="index.html" class="nav-logo">
-            <img src="assets/logo-shoe.svg" alt="Shoe Investments" height="28" style="height:28px;width:auto;filter:brightness(0) invert(1);">
-          </a>
-          <p data-en="A Dutch family office with global venture reach." data-nl="Een Nederlandse family office met wereldwijd bereik.">A Dutch family office with global venture reach.</p>
-        </div>
-        <div class="footer-col">
-          <h4 data-en="Pages" data-nl="Pagina's">Pages</h4>
-          <a href="over-ons.html" data-en="About Us" data-nl="Over Ons">About Us</a>
-          <a href="team.html" data-en="Team" data-nl="Team">Team</a>
-          <a href="esg.html">ESG</a>
-          <a href="portfolio.html" data-en="Portfolio" data-nl="Portfolio">Portfolio</a>
-          <a href="fondsen.html" data-en="Funds" data-nl="Fondsen">Funds</a>
-        </div>
-        <div class="footer-col">
-          <h4 data-en="More" data-nl="Meer">More</h4>
-          <a href="stage.html" data-en="Careers" data-nl="Stage">Careers</a>
-          <a href="actueel.html" data-en="News" data-nl="Actueel">News</a>
-          <a href="contact.html" data-en="Contact" data-nl="Contact">Contact</a>
-        </div>
-        <div class="footer-col">
-          <h4 data-en="Contact" data-nl="Contact">Contact</h4>
-          <a href="mailto:info@shoeinvestments.nl">info@shoeinvestments.nl</a>
-          <a href="tel:+31611210386">+31 6 11210386</a>
-        </div>
+<!-- ===== SELECTED PORTFOLIO ===== -->
+<section class="section" style="background: var(--bg-elevated)">
+  <div class="container">
+    <p class="overline reveal"
+       data-en="Selected Portfolio" data-nl="Geselecteerd Portfolio">Selected Portfolio</p>
+    <h2 class="reveal" style="margin-top:16px"
+        data-en="Companies we back" data-nl="Bedrijven waarin wij investeren">Companies we back</h2>
+
+    <div class="tabs reveal">
+      <button class="tab active" onclick="filterPortfolio('all', this)"
+              data-en="All" data-nl="Alle">All</button>
+      <button class="tab" onclick="filterPortfolio('spv', this)"
+              data-en="Via Funds & SPVs" data-nl="Via Fondsen & SPVs">Via Funds & SPVs</button>
+      <button class="tab" onclick="filterPortfolio('direct', this)"
+              data-en="Direct" data-nl="Direct">Direct</button>
+    </div>
+
+    <div class="portfolio-grid reveal" id="portfolioGrid">
+      <!-- SPV / Fund exposure -->
+      <a href="portfolio/anthropic.html" class="portfolio-card" data-type="spv">
+        <img class="portfolio-card__logo" src="images/anthropic-icon.png" alt="Anthropic">
+        <div class="portfolio-card__name">Anthropic</div>
+        <div class="portfolio-card__desc"
+             data-en="AI safety company behind Claude. Building reliable, interpretable AI systems."
+             data-nl="AI-veiligheidsbedrijf achter Claude. Bouwt betrouwbare, interpreteerbare AI-systemen.">AI safety company behind Claude. Building reliable, interpretable AI systems.</div>
+        <span class="portfolio-card__tag">Via SPV</span>
+      </a>
+      <a href="portfolio/revolut.html" class="portfolio-card" data-type="spv">
+        <img class="portfolio-card__logo" src="https://cdn.prod.website-files.com/64ef52d4e63f78db8ad33967/69894376c89284fcd9f59bd8_Revolut-02-business-appicon-FINAL.png" alt="Revolut">
+        <div class="portfolio-card__name">Revolut</div>
+        <div class="portfolio-card__desc"
+             data-en="Europe's leading fintech platform with 50M+ customers across 38 countries."
+             data-nl="Europa's toonaangevende fintech-platform met 50M+ klanten in 38 landen.">Europe's leading fintech platform with 50M+ customers across 38 countries.</div>
+        <span class="portfolio-card__tag">Via SPV</span>
+      </a>
+      <a href="portfolio/airwallex.html" class="portfolio-card" data-type="spv">
+        <img class="portfolio-card__logo" src="https://cdn.prod.website-files.com/64ef52d4e63f78db8ad33967/69893e2522f2f82b48f964b3_f45b90acb1ec4000af3f827696a89359.png" alt="Airwallex">
+        <div class="portfolio-card__name">Airwallex</div>
+        <div class="portfolio-card__desc"
+             data-en="Global payments and financial infrastructure for modern businesses."
+             data-nl="Wereldwijde betalingen en financiële infrastructuur voor moderne bedrijven.">Global payments and financial infrastructure for modern businesses.</div>
+        <span class="portfolio-card__tag">Via Fund</span>
+      </a>
+      <a href="portfolio/replit.html" class="portfolio-card" data-type="spv">
+        <img class="portfolio-card__logo" src="https://cdn.prod.website-files.com/64ef52d4e63f78db8ad33967/68e4ed206fdc64594470c869_replit.png" alt="Replit">
+        <div class="portfolio-card__name">Replit</div>
+        <div class="portfolio-card__desc"
+             data-en="AI-powered coding platform making software creation accessible to everyone."
+             data-nl="AI-gedreven codeerplatform dat softwareontwikkeling voor iedereen toegankelijk maakt.">AI-powered coding platform making software creation accessible to everyone.</div>
+        <span class="portfolio-card__tag">Via Fund</span>
+      </a>
+      <a href="portfolio/leasy.html" class="portfolio-card" data-type="spv">
+        <img class="portfolio-card__logo" src="https://cdn.prod.website-files.com/64ef52d4e63f78db8ad33967/69893f8f856055bb422f22c2_DSC_6189.webp" alt="Leasy">
+        <div class="portfolio-card__name">Leasy</div>
+        <div class="portfolio-card__desc"
+             data-en="Transparent car leasing for consumers. Disrupting the European auto-lease market."
+             data-nl="Transparante autolease voor consumenten. Vernieuwt de Europese autoleasemarkt.">Transparent car leasing for consumers. Disrupting the European auto-lease market.</div>
+        <span class="portfolio-card__tag">Via SPV</span>
+      </a>
+
+      <!-- Direct investments -->
+      <a href="portfolio/carv.html" class="portfolio-card" data-type="direct">
+        <img class="portfolio-card__logo" src="https://cdn.prod.website-files.com/64ef52d4e63f78db8ad33967/68e4f666d54bd090810713b0_carv.png" alt="Carv">
+        <div class="portfolio-card__name">Carv</div>
+        <div class="portfolio-card__desc"
+             data-en="AI recruitment platform that automates admin work for recruiters."
+             data-nl="AI-recruitmentplatform dat administratief werk voor recruiters automatiseert.">AI recruitment platform that automates admin work for recruiters.</div>
+        <span class="portfolio-card__tag portfolio-card__tag--direct">Direct</span>
+      </a>
+      <a href="portfolio/dealroom.html" class="portfolio-card" data-type="direct">
+        <img class="portfolio-card__logo" src="https://cdn.prod.website-files.com/64ef52d4e63f78db8ad33967/652d01a0c5dd1735ccb7cd17_Rectangle%2035.png" alt="Dealroom">
+        <div class="portfolio-card__name">Dealroom</div>
+        <div class="portfolio-card__desc"
+             data-en="The leading data platform for tracking startups, venture capital, and tech ecosystems."
+             data-nl="Het toonaangevende dataplatform voor het volgen van startups, VC, en tech-ecosystemen.">The leading data platform for tracking startups, venture capital, and tech ecosystems.</div>
+        <span class="portfolio-card__tag portfolio-card__tag--direct">Direct</span>
+      </a>
+      <a href="portfolio/creative-clicks.html" class="portfolio-card" data-type="direct">
+        <img class="portfolio-card__logo" src="https://cdn.prod.website-files.com/64ef52d4e63f78db8ad33967/652d019f192ba076b04cb88c_Rectangle%2034.png" alt="Creative Clicks">
+        <div class="portfolio-card__name">Creative Clicks</div>
+        <div class="portfolio-card__desc"
+             data-en="Digital performance marketing company with global reach and €80M+ revenue."
+             data-nl="Digitaal performance marketing bedrijf met wereldwijd bereik en €80M+ omzet.">Digital performance marketing company with global reach and €80M+ revenue.</div>
+        <span class="portfolio-card__tag portfolio-card__tag--direct">Direct</span>
+      </a>
+      <a href="portfolio/equalture.html" class="portfolio-card" data-type="direct">
+        <img class="portfolio-card__logo" src="https://cdn.prod.website-files.com/64ef52d4e63f78db8ad33967/6555ae7436161867d2702cae_Image_(8).png" alt="Equalture">
+        <div class="portfolio-card__name">Equalture</div>
+        <div class="portfolio-card__desc"
+             data-en="Game-based assessments for bias-free hiring. Making recruitment fairer."
+             data-nl="Game-based assessments voor eerlijke werving. Maakt recruitment eerlijker.">Game-based assessments for bias-free hiring. Making recruitment fairer.</div>
+        <span class="portfolio-card__tag portfolio-card__tag--direct">Direct</span>
+      </a>
+    </div>
+
+    <div style="text-align:center; margin-top:40px" class="reveal">
+      <a href="portfolio.html" class="nav__cta" style="padding:12px 28px; font-size:0.85rem"
+         data-en="View All Investments →" data-nl="Alle Investeringen →">View All Investments →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WHY PARTNER ===== -->
+<section class="section" id="partner">
+  <div class="container">
+    <p class="overline reveal"
+       data-en="For Fund Managers" data-nl="Voor Fund Managers">For Fund Managers</p>
+    <h2 class="reveal" style="margin-top:16px; max-width:600px"
+        data-en="Why leading funds choose us as LP"
+        data-nl="Waarom toonaangevende fondsen ons als LP kiezen">Why leading funds choose us as LP</h2>
+
+    <div class="reasons reveal">
+      <div class="reason">
+        <div class="reason__num">01</div>
+        <h3 data-en="Speed" data-nl="Snelheid">Speed</h3>
+        <p data-en="We commit in days, not quarters. No 12-person investment committee, no LP approval process. One conversation with Pieter, one decision."
+           data-nl="Wij committen in dagen, niet kwartalen. Geen investment committee van 12 mensen, geen LP-goedkeuringstraject. Eén gesprek met Pieter, één beslissing.">
+          We commit in days, not quarters. No 12-person investment committee, no LP approval process. One conversation with Pieter, one decision.
+        </p>
       </div>
-      <div class="footer-bottom">
-        <p data-en="© 2025 Shoe Investments. All rights reserved." data-nl="© 2025 Shoe Investments. Alle rechten voorbehouden.">© 2025 Shoe Investments. All rights reserved.</p>
-        <p style="color:var(--text-muted);font-size:0.72rem;" data-en="Rotterdam, Netherlands" data-nl="Rotterdam, Nederland">Rotterdam, Netherlands</p>
-        <div class="footer-social">
-          <a href="https://www.linkedin.com/company/shoe-investments/" target="_blank" rel="noopener" aria-label="LinkedIn">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-          </a>
-        </div>
+      <div class="reason">
+        <div class="reason__num">02</div>
+        <h3 data-en="Smart Capital" data-nl="Smart Capital">Smart Capital</h3>
+        <p data-en="Pieter Schoen built and sold NLE, the 4th largest energy company in the Netherlands. The Shoe team brings operational experience and a broad European network."
+           data-nl="Pieter Schoen bouwde en verkocht NLE, de vierde energieleverancier van Nederland. Het Shoe team brengt operationele ervaring en een breed Europees netwerk.">
+          Pieter Schoen built and sold NLE, the 4th largest energy company in the Netherlands. The Shoe team brings operational experience and a broad European network.
+        </p>
+      </div>
+      <div class="reason">
+        <div class="reason__num">03</div>
+        <h3 data-en="Evergreen Partner" data-nl="Evergreen Partner">Evergreen Partner</h3>
+        <p data-en="No fund cycles, no exit pressure. We think in decades, not fund terms. Several portfolio companies have been with us for 10+ years."
+           data-nl="Geen fund cycles, geen exit-druk. Wij denken in decennia, niet in fund terms. Meerdere portfoliobedrijven zitten al 10+ jaar in onze portefeuille.">
+          No fund cycles, no exit pressure. We think in decades, not fund terms. Several portfolio companies have been with us for 10+ years.
+        </p>
       </div>
     </div>
-  </footer>
-</div>
+  </div>
+</section>
 
+<!-- ===== CTA BAND ===== -->
+<section class="cta-band">
+  <div class="container--narrow">
+    <h2 data-en="Let's build something together" data-nl="Laten we samen iets bouwen">Let's build something together</h2>
+    <p data-en="Whether you're a fund manager looking for a decisive LP or a founder seeking a hands-on partner — we'd love to hear from you."
+       data-nl="Of je nu een fund manager bent die een besluitvaardige LP zoekt, of een ondernemer die een hands-on partner zoekt — we horen graag van je.">
+      Whether you're a fund manager looking for a decisive LP or a founder seeking a hands-on partner — we'd love to hear from you.
+    </p>
+    <a href="contact.html" class="cta-band__btn"
+       data-en="Get in Touch" data-nl="Neem Contact Op">Get in Touch</a>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__brand">
+      <a href="index.html" class="nav__logo" style="margin-bottom:8px">
+        <img src="assets/logo-shoe.svg" alt="Shoe Investments" style="height:24px">
+        SHOE INVESTMENTS
+      </a>
+      <p data-en="A Dutch family office with global venture reach. Based in Rotterdam since 2018."
+         data-nl="Een Nederlandse family office met wereldwijd bereik. Gevestigd in Rotterdam sinds 2018.">
+        A Dutch family office with global venture reach. Based in Rotterdam since 2018.
+      </p>
+    </div>
+    <div class="footer__col">
+      <h4>Invest</h4>
+      <a href="portfolio.html" data-en="Portfolio" data-nl="Portfolio">Portfolio</a>
+      <a href="portfolio.html#funds" data-en="Funds" data-nl="Fondsen">Funds</a>
+      <a href="about.html" data-en="Our Approach" data-nl="Onze Aanpak">Our Approach</a>
+    </div>
+    <div class="footer__col">
+      <h4>Company</h4>
+      <a href="about.html" data-en="About" data-nl="Over Ons">About</a>
+      <a href="team.html" data-en="Team" data-nl="Team">Team</a>
+      <a href="esg.html" data-en="ESG" data-nl="ESG">ESG</a>
+    </div>
+    <div class="footer__col">
+      <h4>Connect</h4>
+      <a href="contact.html" data-en="Contact" data-nl="Contact">Contact</a>
+      <a href="mailto:info@shoeinvestments.nl">info@shoeinvestments.nl</a>
+      <a href="https://nl.linkedin.com/company/shoe-investments" target="_blank">LinkedIn</a>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <span>© 2026 Shoe Investments. Rotterdam, The Netherlands.</span>
+    <span data-en="The family office of Pieter Schoen"
+          data-nl="De family office van Pieter Schoen">The family office of Pieter Schoen</span>
+  </div>
+</footer>
+
+<!-- ===== JS ===== -->
 <script src="js/main.js"></script>
 </body>
 </html>

@@ -1,491 +1,384 @@
 <!DOCTYPE html>
-<html lang="nl">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio — Shoe Investments</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css" />
+  <meta name="description" content="Explore the Shoe Investments portfolio: direct investments, fund-to-fund positions, and notable exposure in Anthropic, Revolut, and more.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="assets/logo-shoe.svg">
 </head>
 <body>
 
-<nav class="navbar">
-  <div class="container">
-    <a href="index.html" class="nav-logo">
-      <img src="https://cdn.prod.website-files.com/64eccea52a843067f3f921f5/651d822fee055feca2a8ac01_Shoe%20logo.svg" alt="Shoe Investments" height="32" style="height:32px;width:auto;">
+<!-- ===== NAV ===== -->
+<nav class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__logo">
+      <img src="assets/logo-shoe.svg" alt="Shoe Investments">
+      SHOE INVESTMENTS
     </a>
-    <ul class="nav-links">
-      <li class="nav-item">
-        <span class="nav-link" tabindex="0">
-          <span data-nl="Over Ons" data-en="About Us">Over Ons</span>
-          <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-        </span>
-        <div class="dropdown">
-          <a href="over-ons.html" data-nl="Over Ons" data-en="About Us">Over Ons</a>
-          <a href="team.html">Team</a>
-          <a href="esg.html">ESG</a>
-        </div>
-      </li>
-      <li class="nav-item">
-        <span class="nav-link active" tabindex="0">
-          <span data-nl="Investeringen" data-en="Investments">Investeringen</span>
-          <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-        </span>
-        <div class="dropdown">
-          <a href="portfolio.html" data-nl="Portfolio" data-en="Portfolio">Portfolio</a>
-          <a href="fondsen.html" data-nl="Fondsen" data-en="Funds">Fondsen</a>
-        </div>
-      </li>
-      <li><a href="stage.html" class="nav-link" data-nl="Stage" data-en="Internship">Stage</a></li>
-      <li><a href="actueel.html" class="nav-link" data-nl="Actueel" data-en="News">Actueel</a></li>
+    <ul class="nav__links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="portfolio.html" class="active">Investments</a></li>
+      <li><a href="team.html">Team</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
     </ul>
-    <div class="nav-right">
-      <div class="lang-toggle">
-        <button class="lang-btn active" data-lang="nl">NL</button>
-        <button class="lang-btn" data-lang="en">EN</button>
+    <div class="nav__right">
+      <div class="lang-sw">
+        <button class="lang-btn active" data-lang="en" onclick="setLang('en')">EN</button>
+        <button class="lang-btn" data-lang="nl" onclick="setLang('nl')">NL</button>
       </div>
-      <a href="contact.html" class="btn btn-primary" data-nl="Neem Contact Op" data-en="Contact Us">Neem Contact Op</a>
-      <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+      <a href="contact.html" class="nav__cta" data-en="Get in Touch" data-nl="Neem Contact Op">Get in Touch</a>
     </div>
+    <button class="nav__burger" onclick="document.body.classList.toggle('menu-open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
+
 <div class="mobile-nav">
-  <a href="over-ons.html" data-nl="Over Ons" data-en="About Us">Over Ons</a>
-  <a href="team.html">Team</a>
-  <a href="esg.html">ESG</a>
-  <a href="portfolio.html" data-nl="Portfolio" data-en="Portfolio">Portfolio</a>
-  <a href="fondsen.html" data-nl="Fondsen" data-en="Funds">Fondsen</a>
-  <a href="stage.html" data-nl="Stage" data-en="Internship">Stage</a>
-  <a href="actueel.html" data-nl="Actueel" data-en="News">Actueel</a>
-  <a href="contact.html" data-nl="Neem Contact Op" data-en="Contact Us">Neem Contact Op</a>
+  <a href="index.html" data-en="Home" data-nl="Home">Home</a>
+  <a href="portfolio.html" data-en="Investments" data-nl="Investeringen">Investments</a>
+  <a href="team.html" data-en="Team" data-nl="Team">Team</a>
+  <a href="about.html" data-en="About" data-nl="Over Ons">About</a>
+  <a href="contact.html" data-en="Contact" data-nl="Contact">Contact</a>
 </div>
 
-<div class="page-content">
+<!-- ===== HERO ===== -->
+<section class="section" style="padding-top: 140px;">
+  <div class="container">
+    <p class="overline reveal" data-en="Investments" data-nl="Investeringen">Investments</p>
+    <h1 class="reveal" style="margin-top:16px; max-width:700px"
+        data-en="Building conviction across stages and geographies"
+        data-nl="Overtuiging opbouwen over fasen en regio's heen">Building conviction across stages and geographies</h1>
+    <p class="subtitle reveal" style="margin-top:20px"
+       data-en="From direct Dutch scale-up investments to global fund positions and SPV follow-ons."
+       data-nl="Van directe Nederlandse scale-up investeringen tot wereldwijde fondsposities en SPV follow-ons.">From direct Dutch scale-up investments to global fund positions and SPV follow-ons.</p>
 
-  <div class="page-hero" data-page-hero="portfolio">
-    <div class="container">
-      <p class="page-hero-eyebrow">Shoe Investments</p>
-      <h1 data-nl="Portfolio" data-en="Portfolio">Portfolio</h1>
-      <p class="lead" data-nl="Ontdek ons diverse portfolio met snelgroeiende en schaalbare ondernemingen. Iedere onderneming is uniek, geleid door top ondernemers." data-en="Discover our diverse portfolio of fast-growing and scalable companies. Each company is unique, led by top entrepreneurs.">Ontdek ons diverse portfolio met snelgroeiende en schaalbare ondernemingen. Iedere onderneming is uniek, geleid door top ondernemers.</p>
+    <div class="tabs reveal" style="margin-top:40px">
+      <button class="tab active" onclick="filterPortfolio('all', this)" data-en="All" data-nl="Alle">All</button>
+      <button class="tab" onclick="filterPortfolio('direct', this)" data-en="Direct Portfolio" data-nl="Direct Portfolio">Direct Portfolio</button>
+      <button class="tab" onclick="filterPortfolio('spv', this)" data-en="Via Funds & SPVs" data-nl="Via Fondsen & SPVs">Via Funds & SPVs</button>
+      <button class="tab" onclick="filterPortfolio('fund', this)" data-en="Fund Partners" data-nl="Fund Partners">Fund Partners</button>
     </div>
   </div>
+</section>
 
-  <!-- ===== SHOE INVESTMENTS PORTFOLIO ===== -->
-  <section>
-    <div class="container">
-      <p class="section-label" data-nl="Shoe Investments Portfolio" data-en="Shoe Investments Portfolio">Shoe Investments Portfolio</p>
-      <div class="portfolio-filter">
-        <button class="filter-btn active" data-filter="all" data-nl="Alle" data-en="All">Alle</button>
-        <button class="filter-btn" data-filter="current" data-nl="Huidig" data-en="Current">Huidig</button>
-        <button class="filter-btn" data-filter="exit" data-nl="Exit" data-en="Exit">Exit</button>
+<!-- ===== PORTFOLIO GRID ===== -->
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="portfolio-grid reveal" id="portfolioGrid">
+
+      <!-- VIA FUNDS & SPVs -->
+      <a href="portfolio/anthropic.html" class="portfolio-card" data-type="spv">
+        <img class="portfolio-card__logo" src="images/anthropic-icon.png" alt="Anthropic">
+        <div class="portfolio-card__name">Anthropic</div>
+        <div class="portfolio-card__desc" data-en="AI safety company behind Claude. Building reliable, interpretable AI systems." data-nl="AI-veiligheidsbedrijf achter Claude. Bouwt betrouwbare, interpreteerbare AI-systemen.">AI safety company behind Claude. Building reliable, interpretable AI systems.</div>
+        <span class="portfolio-card__tag">Via SPV</span>
+      </a>
+
+      <a href="portfolio/revolut.html" class="portfolio-card" data-type="spv">
+        <img class="portfolio-card__logo" src="https://cdn.prod.website-files.com/64ef52d4e63f78db8ad33967/69894376c89284fcd9f59bd8_Revolut-02-business-appicon-FINAL.png" alt="Revolut">
+        <div class="portfolio-card__name">Revolut</div>
+        <div class="portfolio-card__desc" data-en="Europe's leading fintech platform with 50M+ customers across 38 countries." data-nl="Europa's toonaangevende fintech-platform met 50M+ klanten in 38 landen.">Europe's leading fintech platform with 50M+ customers across 38 countries.</div>
+        <span class="portfolio-card__tag">Via SPV</span>
+      </a>
+
+      <a href="portfolio/airwallex.html" class="portfolio-card" data-type="spv">
+        <img class="portfolio-card__logo" src="https://cdn.prod.website-files.com/64ef52d4e63f78db8ad33967/69893e2522f2f82b48f964b3_f45b90acb1ec4000af3f827696a89359.png" alt="Airwallex">
+        <div class="portfolio-card__name">Airwallex</div>
+        <div class="portfolio-card__desc" data-en="Global payments and financial infrastructure for modern businesses." data-nl="Wereldwijde betalingen en financiële infrastructuur voor moderne bedrijven.">Global payments and financial infrastructure for modern businesses.</div>
+        <span class="portfolio-card__tag">Via Fund</span>
+      </a>
+
+      <a href="portfolio/replit.html" class="portfolio-card" data-type="spv">
+        <img class="portfolio-card__logo" src="https://cdn.prod.website-files.com/64ef52d4e63f78db8ad33967/68e4ed206fdc64594470c869_replit.png" alt="Replit">
+        <div class="portfolio-card__name">Replit</div>
+        <div class="portfolio-card__desc" data-en="AI-powered coding platform making software creation accessible to everyone." data-nl="AI-gedreven codeerplatform dat softwareontwikkeling voor iedereen toegankelijk maakt.">AI-powered coding platform making software creation accessible to everyone.</div>
+        <span class="portfolio-card__tag">Via Fund</span>
+      </a>
+
+      <a href="portfolio/leasy.html" class="portfolio-card" data-type="spv">
+        <img class="portfolio-card__logo" src="https://cdn.prod.website-files.com/64ef52d4e63f78db8ad33967/69893f8f856055bb422f22c2_DSC_6189.webp" alt="Leasy">
+        <div class="portfolio-card__name">Leasy</div>
+        <div class="portfolio-card__desc" data-en="Transparent car leasing for consumers. Disrupting the European auto-lease market." data-nl="Transparante autolease voor consumenten. Vernieuwt de Europese autoleasemarkt.">Transparent car leasing for consumers. Disrupting the European auto-lease market.</div>
+        <span class="portfolio-card__tag">Via SPV</span>
+      </a>
+
+      <!-- DIRECT PORTFOLIO -->
+      <div class="portfolio-card" data-type="direct">
+        <img class="portfolio-card__logo" src="https://cdn.prod.website-files.com/64ef52d4e63f78db8ad33967/652d019f192ba076b04cb88c_Rectangle%2034.png" alt="Creative Clicks">
+        <div class="portfolio-card__name">Creative Clicks</div>
+        <div class="portfolio-card__desc" data-en="Digital performance marketing company with global reach and €80M+ revenue." data-nl="Digitaal performance marketing bedrijf met wereldwijd bereik en €80M+ omzet.">Digital performance marketing company with global reach and €80M+ revenue.</div>
+        <span class="portfolio-card__tag portfolio-card__tag--direct">Direct</span>
       </div>
 
-      <div class="portfolio-grid">
-
-        <!-- CURRENT investments — mixed order for diversity -->
-        <a href="portfolio/aquablu.html" class="portfolio-card" data-type="current">
-          <img src="https://cdn.prod.website-files.com/64ef52d4e63f78db8ad33967/684ff440d3f2613701f63c3e_Aquablue%20portfolio.png" alt="Aquablu" class="portfolio-card-img" style="object-position:center 30%;" onerror="this.style.display='none'">
-          <div class="portfolio-card-body">
-            <div class="portfolio-company">Aquablu</div>
-            <div class="portfolio-meta" data-nl="Marnix Stokvis &amp; Marc van Zuylen" data-en="Marnix Stokvis &amp; Marc van Zuylen">Marnix Stokvis &amp; Marc van Zuylen</div>
-            <div class="portfolio-meta" data-nl="Partner sinds 2025" data-en="Partner since 2025">Partner sinds 2025</div>
-            <span class="portfolio-badge badge-current" data-nl="Huidig" data-en="Current">Huidig</span>
-          </div>
-          <div class="card-tooltip" data-nl="Duurzame wateroplossingen voor kantoren" data-en="Sustainable water solutions for offices">Duurzame wateroplossingen voor kantoren</div>
-        </a>
-        <a href="portfolio/brainial.html" class="portfolio-card" data-type="current">
-          <img src="https://cdn.prod.website-files.com/64ef52d4e63f78db8ad33967/67e4567a6b24aa0a940cb63f_branial.jpg" alt="Brainial" class="portfolio-card-img" onerror="this.style.display='none'">
-          <div class="portfolio-card-body">
-            <div class="portfolio-company">Brainial</div>
-            <div class="portfolio-meta" data-nl="Fedor Klinkenberg &amp; Taco Hiddink" data-en="Fedor Klinkenberg &amp; Taco Hiddink">Fedor Klinkenberg &amp; Taco Hiddink</div>
-            <div class="portfolio-meta" data-nl="Partner sinds 2025" data-en="Partner since 2025">Partner sinds 2025</div>
-            <span class="portfolio-badge badge-current" data-nl="Huidig" data-en="Current">Huidig</span>
-          </div>
-          <div class="card-tooltip" data-nl="AI-software voor aanbestedingen" data-en="AI software for tenders">AI-software voor aanbestedingen</div>
-        </a>
-        <a href="portfolio/leasy.html" class="portfolio-card" data-type="current">
-          <img src="https://cdn.prod.website-files.com/64ef52d4e63f78db8ad33967/69893f8f856055bb422f22c2_DSC_6189.webp" alt="Leasy" class="portfolio-card-img" onerror="this.style.display='none'">
-          <div class="portfolio-card-body">
-            <div class="portfolio-company">Leasy</div>
-            <div class="portfolio-meta" data-nl="Gregorio Gilardini &amp; Alejandro Garay" data-en="Gregorio Gilardini &amp; Alejandro Garay">Gregorio Gilardini &amp; Alejandro Garay</div>
-            <div class="portfolio-meta" data-nl="Partner sinds 2025" data-en="Partner since 2025">Partner sinds 2025</div>
-            <span class="portfolio-badge badge-current" data-nl="Huidig" data-en="Current">Huidig</span>
-          </div>
-          <div class="card-tooltip" data-nl="Transparante autolease voor consumenten" data-en="Transparent car leasing for consumers">Transparante autolease voor consumenten</div>
-        </a>
-        <a href="portfolio/anthropic.html" class="portfolio-card" data-type="current">
-          <img src="images/anthropic-icon.svg" alt="Anthropic" class="portfolio-card-img" style="object-fit:contain;background:#f5f0eb;padding:24px;" onerror="this.style.display='none'">
-          <div class="portfolio-card-body">
-            <div class="portfolio-company">Anthropic</div>
-            <div class="portfolio-meta" data-nl="Dario Amodei" data-en="Dario Amodei">Dario Amodei</div>
-            <div class="portfolio-meta" data-nl="Partner sinds 2026" data-en="Partner since 2026">Partner sinds 2026</div>
-            <span class="portfolio-badge badge-current" data-nl="Huidig" data-en="Current">Huidig</span>
-          </div>
-          <div class="card-tooltip" data-nl="AI-veiligheidsbedrijf achter Claude" data-en="AI safety company behind Claude">AI-veiligheidsbedrijf achter Claude</div>
-        </a>
-        <a href="portfolio/mamas-maaltijden.html" class="portfolio-card" data-type="current">
-          <img src="https://cdn.prod.website-files.com/64ef52d4e63f78db8ad33967/6555ae75221ec0a6617fe6a8_Image_(10).png" alt="Mama's Maaltijden" class="portfolio-card-img" style="object-position:center 30%;" onerror="this.style.display='none'">
-          <div class="portfolio-card-body">
-            <div class="portfolio-company">Mama's Maaltijden</div>
-            <div class="portfolio-meta" data-nl="Serdar Tolenaar, Rick Hageman &amp; Henk Brussaard" data-en="Serdar Tolenaar, Rick Hageman &amp; Henk Brussaard">Serdar Tolenaar, Rick Hageman &amp; Henk Brussaard</div>
-            <div class="portfolio-meta" data-nl="Partner sinds 2023" data-en="Partner since 2023">Partner sinds 2023</div>
-            <span class="portfolio-badge badge-current" data-nl="Huidig" data-en="Current">Huidig</span>
-          </div>
-          <div class="card-tooltip" data-nl="Marktleider in koelverse maaltijden" data-en="Market leader in chilled ready meals">Marktleider in koelverse maaltijden</div>
-        </a>
-        <a href="portfolio/apollo-lane.html" class="portfolio-card" data-type="current">
-          <img src="https://cdn.prod.website-files.com/64ef52d4e63f78db8ad33967/698afabe07e43414ea6c41b3_appollo%20lane%20portfolio.png" alt="Apollo Lane" class="portfolio-card-img" onerror="this.style.display='none'">
-          <div class="portfolio-card-body">
-            <div class="portfolio-company">Apollo Lane</div>
-            <div class="portfolio-meta" data-nl="Pieter Schoen &amp; Diederik Ingen Housz" data-en="Pieter Schoen &amp; Diederik Ingen Housz">Pieter Schoen &amp; Diederik Ingen Housz</div>
-            <div class="portfolio-meta" data-nl="Partner sinds 2026" data-en="Partner since 2026">Partner sinds 2026</div>
-            <span class="portfolio-badge badge-current" data-nl="Huidig" data-en="Current">Huidig</span>
-          </div>
-          <div class="card-tooltip" data-nl="Investeringsvehikel van Pieter Schoen" data-en="Investment vehicle by Pieter Schoen">Investeringsvehikel van Pieter Schoen</div>
-        </a>
-        <a href="portfolio/carv.html" class="portfolio-card" data-type="current">
-          <img src="https://cdn.prod.website-files.com/64ef52d4e63f78db8ad33967/68e4f666d54bd090810713b0_carv.png" alt="Carv" class="portfolio-card-img" onerror="this.style.display='none'">
-          <div class="portfolio-card-body">
-            <div class="portfolio-company">Carv</div>
-            <div class="portfolio-meta" data-nl="Matthijs Metzemaekers &amp; Barend Raaff" data-en="Matthijs Metzemaekers &amp; Barend Raaff">Matthijs Metzemaekers &amp; Barend Raaff</div>
-            <div class="portfolio-meta" data-nl="Partner sinds 2025" data-en="Partner since 2025">Partner sinds 2025</div>
-            <span class="portfolio-badge badge-current" data-nl="Huidig" data-en="Current">Huidig</span>
-          </div>
-          <div class="card-tooltip" data-nl="AI recruitment platform voor recruiters" data-en="AI recruitment platform for recruiters">AI recruitment platform voor recruiters</div>
-        </a>
-        <a href="portfolio/loop.html" class="portfolio-card" data-type="current">
-          <img src="https://cdn.prod.website-files.com/64ef52d4e63f78db8ad33967/6555ae752666d124cef70362_Image_(9).png" alt="Loop" class="portfolio-card-img" onerror="this.style.display='none'">
-          <div class="portfolio-card-body">
-            <div class="portfolio-company">Loop</div>
-            <div class="portfolio-meta" data-nl="Bob Hendrikx &amp; Lonneke Westhoff" data-en="Bob Hendrikx &amp; Lonneke Westhoff">Bob Hendrikx &amp; Lonneke Westhoff</div>
-            <div class="portfolio-meta" data-nl="Partner sinds 2022" data-en="Partner since 2022">Partner sinds 2022</div>
-            <span class="portfolio-badge badge-current" data-nl="Huidig" data-en="Current">Huidig</span>
-          </div>
-          <div class="card-tooltip" data-nl="Biologisch afbreekbare doodskisten" data-en="Biodegradable coffins from mycelium">Biologisch afbreekbare doodskisten</div>
-        </a>
-        <a href="portfolio/revolut.html" class="portfolio-card" data-type="current">
-          <img src="https://cdn.prod.website-files.com/64ef52d4e63f78db8ad33967/69894376c89284fcd9f59bd8_Revolut-02-business-appicon-FINAL.png" alt="Revolut" class="portfolio-card-img" onerror="this.style.display='none'">
-          <div class="portfolio-card-body">
-            <div class="portfolio-company">Revolut</div>
-            <div class="portfolio-meta" data-nl="Nik Storonsky" data-en="Nik Storonsky">Nik Storonsky</div>
-            <div class="portfolio-meta" data-nl="Partner sinds 2026" data-en="Partner since 2026">Partner sinds 2026</div>
-            <span class="portfolio-badge badge-current" data-nl="Huidig" data-en="Current">Huidig</span>
-          </div>
-          <div class="card-tooltip" data-nl="Europees fintech-platform voor bankieren" data-en="European fintech platform for banking">Europees fintech-platform voor bankieren</div>
-        </a>
-        <a href="portfolio/ixxi.html" class="portfolio-card" data-type="current">
-          <img src="https://cdn.prod.website-files.com/64ef52d4e63f78db8ad33967/668403b57f40406f31dd2964_Ixxi%20portfolio-min.png" alt="IXXI" class="portfolio-card-img" onerror="this.style.display='none'">
-          <div class="portfolio-card-body">
-            <div class="portfolio-company">IXXI</div>
-            <div class="portfolio-meta" data-nl="Erik-Jan Schreurs, Luc Hendriks &amp; Thomas Beguin" data-en="Erik-Jan Schreurs, Luc Hendriks &amp; Thomas Beguin">Erik-Jan Schreurs, Luc Hendriks &amp; Thomas Beguin</div>
-            <div class="portfolio-meta" data-nl="Partner sinds 2021" data-en="Partner since 2021">Partner sinds 2021</div>
-            <span class="portfolio-badge badge-current" data-nl="Huidig" data-en="Current">Huidig</span>
-          </div>
-          <div class="card-tooltip" data-nl="Modulaire wanddecoratie in 30+ landen" data-en="Modular wall decoration in 30+ countries">Modulaire wanddecoratie in 30+ landen</div>
-        </a>
-        <a href="portfolio/grantific.html" class="portfolio-card" data-type="current">
-          <img src="https://cdn.prod.website-files.com/64ef52d4e63f78db8ad33967/698edae42df396cbe010c0df_logo%20social.png" alt="Grantific" class="portfolio-card-img" onerror="this.style.display='none'">
-          <div class="portfolio-card-body">
-            <div class="portfolio-company">Grantific</div>
-            <div class="portfolio-meta" data-nl="Theodoor Rutgers" data-en="Theodoor Rutgers">Theodoor Rutgers</div>
-            <div class="portfolio-meta" data-nl="Partner sinds 2026" data-en="Partner since 2026">Partner sinds 2026</div>
-            <span class="portfolio-badge badge-current" data-nl="Huidig" data-en="Current">Huidig</span>
-          </div>
-          <div class="card-tooltip" data-nl="Subsidieplatform voor ondernemers" data-en="Grant platform for entrepreneurs">Subsidieplatform voor ondernemers</div>
-        </a>
-        <a href="portfolio/bright-bird.html" class="portfolio-card" data-type="current">
-          <img src="https://cdn.prod.website-files.com/64ef52d4e63f78db8ad33967/673c32d94a9912bc7e61c42d_bridge%20bird.png" alt="Bright Bird" class="portfolio-card-img" style="object-position:center 35%;" onerror="this.style.display='none'">
-          <div class="portfolio-card-body">
-            <div class="portfolio-company">Bright Bird</div>
-            <div class="portfolio-meta" data-nl="Camiel Kuik &amp; Claris Schoen" data-en="Camiel Kuik &amp; Claris Schoen">Camiel Kuik &amp; Claris Schoen</div>
-            <div class="portfolio-meta" data-nl="Partner sinds 2024" data-en="Partner since 2024">Partner sinds 2024</div>
-            <span class="portfolio-badge badge-current" data-nl="Huidig" data-en="Current">Huidig</span>
-          </div>
-          <div class="card-tooltip" data-nl="Educatief platform voor kinderen" data-en="Educational platform for children">Educatief platform voor kinderen</div>
-        </a>
-        <a href="portfolio/airwallex.html" class="portfolio-card" data-type="current">
-          <img src="https://cdn.prod.website-files.com/64ef52d4e63f78db8ad33967/69893e2522f2f82b48f964b3_f45b90acb1ec4000af3f827696a89359.png" alt="Airwallex" class="portfolio-card-img" onerror="this.style.display='none'">
-          <div class="portfolio-card-body">
-            <div class="portfolio-company">Airwallex</div>
-            <div class="portfolio-meta" data-nl="Jack Zhang" data-en="Jack Zhang">Jack Zhang</div>
-            <div class="portfolio-meta" data-nl="Partner sinds 2026" data-en="Partner since 2026">Partner sinds 2026</div>
-            <span class="portfolio-badge badge-current" data-nl="Huidig" data-en="Current">Huidig</span>
-          </div>
-          <div class="card-tooltip" data-nl="Grensoverschrijdende betalingen voor bedrijven" data-en="Cross-border payments for businesses">Grensoverschrijdende betalingen voor bedrijven</div>
-        </a>
-        <a href="portfolio/liquido-doro.html" class="portfolio-card" data-type="current">
-          <img src="https://cdn.prod.website-files.com/64ef52d4e63f78db8ad33967/68e4f55ff11e2b0a6f20c42d_LIQUIDO.png" alt="Liquido d'Oro" class="portfolio-card-img" onerror="this.style.display='none'">
-          <div class="portfolio-card-body">
-            <div class="portfolio-company">Liquido d'Oro</div>
-            <div class="portfolio-meta" data-nl="Ridder Drost" data-en="Ridder Drost">Ridder Drost</div>
-            <div class="portfolio-meta" data-nl="Partner sinds 2021" data-en="Partner since 2021">Partner sinds 2021</div>
-            <span class="portfolio-badge badge-current" data-nl="Huidig" data-en="Current">Huidig</span>
-          </div>
-          <div class="card-tooltip" data-nl="Premium Italiaanse olijfolie" data-en="Premium Italian olive oil">Premium Italiaanse olijfolie</div>
-        </a>
-        <a href="portfolio/zkr.html" class="portfolio-card" data-type="current">
-          <img src="https://cdn.prod.website-files.com/64ef52d4e63f78db8ad33967/658d73ecb3560907796cfa31_zkr.%20oprichters.png" alt="Zkr." class="portfolio-card-img" onerror="this.style.display='none'">
-          <div class="portfolio-card-body">
-            <div class="portfolio-company">Zkr.</div>
-            <div class="portfolio-meta" data-nl="Khalid Maatoug &amp; Tarik Joemmanbaks" data-en="Khalid Maatoug &amp; Tarik Joemmanbaks">Khalid Maatoug &amp; Tarik Joemmanbaks</div>
-            <div class="portfolio-meta" data-nl="Partner sinds 2023" data-en="Partner since 2023">Partner sinds 2023</div>
-            <span class="portfolio-badge badge-current" data-nl="Huidig" data-en="Current">Huidig</span>
-          </div>
-          <div class="card-tooltip" data-nl="Kredietoplossingen voor consumenten" data-en="Credit solutions for consumers">Kredietoplossingen voor consumenten</div>
-        </a>
-        <a href="portfolio/replit.html" class="portfolio-card" data-type="current">
-          <img src="https://cdn.prod.website-files.com/64ef52d4e63f78db8ad33967/68e4ed206fdc64594470c869_replit.png" alt="Replit" class="portfolio-card-img" onerror="this.style.display='none'">
-          <div class="portfolio-card-body">
-            <div class="portfolio-company">Replit</div>
-            <div class="portfolio-meta" data-nl="Amjad Masad &amp; Haya Odeh" data-en="Amjad Masad &amp; Haya Odeh">Amjad Masad &amp; Haya Odeh</div>
-            <div class="portfolio-meta" data-nl="Partner sinds 2025" data-en="Partner since 2025">Partner sinds 2025</div>
-            <span class="portfolio-badge badge-current" data-nl="Huidig" data-en="Current">Huidig</span>
-          </div>
-          <div class="card-tooltip" data-nl="Online coding platform met AI" data-en="Online coding platform with AI">Online coding platform met AI</div>
-        </a>
-        <a href="portfolio/creditchecken.html" class="portfolio-card" data-type="current">
-          <img src="https://cdn.prod.website-files.com/64ef52d4e63f78db8ad33967/658d7d154d452c3f9c814126_oprichter.jpg" alt="Creditchecken" class="portfolio-card-img" style="object-position:center 15%;" onerror="this.style.display='none'">
-          <div class="portfolio-card-body">
-            <div class="portfolio-company">Creditchecken</div>
-            <div class="portfolio-meta" data-nl="Tarik Joemmanbaks" data-en="Tarik Joemmanbaks">Tarik Joemmanbaks</div>
-            <div class="portfolio-meta" data-nl="Partner sinds 2023" data-en="Partner since 2023">Partner sinds 2023</div>
-            <span class="portfolio-badge badge-current" data-nl="Huidig" data-en="Current">Huidig</span>
-          </div>
-          <div class="card-tooltip" data-nl="Inzicht in je kredietwaardigheid" data-en="Insight into your creditworthiness">Inzicht in je kredietwaardigheid</div>
-        </a>
-        <a href="portfolio/equalture.html" class="portfolio-card" data-type="current">
-          <img src="https://cdn.prod.website-files.com/64ef52d4e63f78db8ad33967/6555ae7436161867d2702cae_Image_(8).png" alt="Equalture" class="portfolio-card-img" onerror="this.style.display='none'">
-          <div class="portfolio-card-body">
-            <div class="portfolio-company">Equalture</div>
-            <div class="portfolio-meta" data-nl="Fleur &amp; Charlotte Melkert" data-en="Fleur &amp; Charlotte Melkert">Fleur &amp; Charlotte Melkert</div>
-            <div class="portfolio-meta" data-nl="Partner sinds 2021" data-en="Partner since 2021">Partner sinds 2021</div>
-            <span class="portfolio-badge badge-current" data-nl="Huidig" data-en="Current">Huidig</span>
-          </div>
-          <div class="card-tooltip" data-nl="Eerlijker werven via gamificatie" data-en="Fairer hiring through gamification">Eerlijker werven via gamificatie</div>
-        </a>
-        <a href="portfolio/focus.html" class="portfolio-card" data-type="current">
-          <img src="https://cdn.prod.website-files.com/64ef52d4e63f78db8ad33967/658d53041dc9c3caf9e77597_focus%20profiel.png" alt="Focus" class="portfolio-card-img" onerror="this.style.display='none'">
-          <div class="portfolio-card-body">
-            <div class="portfolio-company">Focus</div>
-            <div class="portfolio-meta" data-nl="Thijs van de Poll &amp; Jard van Ingen" data-en="Thijs van de Poll &amp; Jard van Ingen">Thijs van de Poll &amp; Jard van Ingen</div>
-            <div class="portfolio-meta" data-nl="Partner sinds 2023" data-en="Partner since 2023">Partner sinds 2023</div>
-            <span class="portfolio-badge badge-current" data-nl="Huidig" data-en="Current">Huidig</span>
-          </div>
-          <div class="card-tooltip" data-nl="AI-gedreven patent intelligence" data-en="AI-driven patent intelligence">AI-gedreven patent intelligence</div>
-        </a>
-        <a href="portfolio/colect.html" class="portfolio-card" data-type="current">
-          <img src="https://cdn.prod.website-files.com/64ef52d4e63f78db8ad33967/6555ae75959448b5e5dcfb7d_Image_(11).png" alt="Colect" class="portfolio-card-img" onerror="this.style.display='none'">
-          <div class="portfolio-card-body">
-            <div class="portfolio-company">Colect</div>
-            <div class="portfolio-meta" data-nl="Nick Andriesse" data-en="Nick Andriesse">Nick Andriesse</div>
-            <div class="portfolio-meta" data-nl="Partner sinds 2019" data-en="Partner since 2019">Partner sinds 2019</div>
-            <span class="portfolio-badge badge-current" data-nl="Huidig" data-en="Current">Huidig</span>
-          </div>
-          <div class="card-tooltip" data-nl="B2B fashion platform voor merken" data-en="B2B fashion platform for brands">B2B fashion platform voor merken</div>
-        </a>
-        <a href="portfolio/swishfund.html" class="portfolio-card" data-type="current">
-          <img src="https://cdn.prod.website-files.com/64ef52d4e63f78db8ad33967/68e4ee9a5b5c69653bcb5e36_swishfund.png" alt="Swishfund" class="portfolio-card-img" onerror="this.style.display='none'">
-          <div class="portfolio-card-body">
-            <div class="portfolio-company">Swishfund</div>
-            <div class="portfolio-meta" data-nl="Pieter Schoen &amp; Bart-Jan van Genderen" data-en="Pieter Schoen &amp; Bart-Jan van Genderen">Pieter Schoen &amp; Bart-Jan van Genderen</div>
-            <div class="portfolio-meta" data-nl="Partner sinds 2016" data-en="Partner since 2016">Partner sinds 2016</div>
-            <span class="portfolio-badge badge-current" data-nl="Huidig" data-en="Current">Huidig</span>
-          </div>
-          <div class="card-tooltip" data-nl="Snelle financiering voor het MKB" data-en="Fast financing for SMEs">Snelle financiering voor het MKB</div>
-        </a>
-        <a href="portfolio/dealroom.html" class="portfolio-card" data-type="current">
-          <img src="https://cdn.prod.website-files.com/64ef52d4e63f78db8ad33967/6555ae74b5abaee0b8205708_Image_(7).png" alt="Dealroom" class="portfolio-card-img" onerror="this.style.display='none'">
-          <div class="portfolio-card-body">
-            <div class="portfolio-company">Dealroom</div>
-            <div class="portfolio-meta" data-nl="Yoram Wijngaarde" data-en="Yoram Wijngaarde">Yoram Wijngaarde</div>
-            <div class="portfolio-meta" data-nl="Partner sinds 2018" data-en="Partner since 2018">Partner sinds 2018</div>
-            <span class="portfolio-badge badge-current" data-nl="Huidig" data-en="Current">Huidig</span>
-          </div>
-          <div class="card-tooltip" data-nl="Toonaangevende Europese startup data" data-en="Leading European startup data platform">Toonaangevende Europese startup data</div>
-        </a>
-        <a href="portfolio/creative-clicks.html" class="portfolio-card" data-type="current">
-          <img src="https://cdn.prod.website-files.com/64ef52d4e63f78db8ad33967/6555ae75d2fd263fd6eefc8a_CC.jpeg" alt="Creative Clicks" class="portfolio-card-img" onerror="this.style.display='none'">
-          <div class="portfolio-card-body">
-            <div class="portfolio-company">Creative Clicks</div>
-            <div class="portfolio-meta" data-nl="Ramon van den Bulk &amp; Raymond Kokken" data-en="Ramon van den Bulk &amp; Raymond Kokken">Ramon van den Bulk &amp; Raymond Kokken</div>
-            <div class="portfolio-meta" data-nl="Partner sinds 2012" data-en="Partner since 2012">Partner sinds 2012</div>
-            <span class="portfolio-badge badge-current" data-nl="Huidig" data-en="Current">Huidig</span>
-          </div>
-          <div class="card-tooltip" data-nl="Internationaal performance advertising" data-en="International performance advertising">Internationaal performance advertising</div>
-        </a>
-
-        <!-- EXIT investments — sorted newest to oldest -->
-        <a href="portfolio/mega.html" class="portfolio-card exit" data-type="exit">
-          <img src="https://cdn.prod.website-files.com/64ef52d4e63f78db8ad33967/68e4f2a55b0a2743ea89524f_MEGA%20EXIT.png" alt="Mega" class="portfolio-card-img" onerror="this.style.display='none'">
-          <div class="portfolio-card-body">
-            <div class="portfolio-company">Mega</div>
-            <div class="portfolio-meta" data-nl="Micheal Corhay &amp; Thomas Coune" data-en="Micheal Corhay &amp; Thomas Coune">Micheal Corhay &amp; Thomas Coune</div>
-            <div class="portfolio-meta" data-nl="Exit" data-en="Exit">Exit</div>
-            <span class="portfolio-badge badge-exit" data-nl="Exit" data-en="Exit">Exit</span>
-          </div>
-          <div class="card-tooltip" data-nl="Groene energieleverancier (exit 2025)" data-en="Green energy supplier (exit 2025)">Groene energieleverancier (exit 2025)</div>
-        </a>
-        <a href="portfolio/isolatiespecialist.html" class="portfolio-card exit" data-type="exit">
-          <img src="https://cdn.prod.website-files.com/64ef52d4e63f78db8ad33967/6555ae743c2f1a57748e219a_iso.png" alt="Isolatiespecialist" class="portfolio-card-img" onerror="this.style.display='none'">
-          <div class="portfolio-card-body">
-            <div class="portfolio-company">Isolatiespecialist</div>
-            <div class="portfolio-meta" data-nl="Marc &amp; Margreet Anker" data-en="Marc &amp; Margreet Anker">Marc &amp; Margreet Anker</div>
-            <div class="portfolio-meta" data-nl="Exit" data-en="Exit">Exit</div>
-            <span class="portfolio-badge badge-exit" data-nl="Exit" data-en="Exit">Exit</span>
-          </div>
-          <div class="card-tooltip" data-nl="Isolatiediensten voor woningen (exit 2023)" data-en="Insulation services for homes (exit 2023)">Isolatiediensten voor woningen (exit 2023)</div>
-        </a>
-        <a href="portfolio/charlie-temple.html" class="portfolio-card exit" data-type="exit">
-          <img src="https://cdn.prod.website-files.com/64ef52d4e63f78db8ad33967/6555ae7442459ecd41f3e492_Charlie_exit.jpeg" alt="Charlie Temple" class="portfolio-card-img" onerror="this.style.display='none'">
-          <div class="portfolio-card-body">
-            <div class="portfolio-company">Charlie Temple</div>
-            <div class="portfolio-meta" data-nl="Leon Planken" data-en="Leon Planken">Leon Planken</div>
-            <div class="portfolio-meta" data-nl="Exit" data-en="Exit">Exit</div>
-            <span class="portfolio-badge badge-exit" data-nl="Exit" data-en="Exit">Exit</span>
-          </div>
-          <div class="card-tooltip" data-nl="Online brillenretailer met thuspasservice (exit 2019)" data-en="Online eyewear with home try-on (exit 2019)">Online brillenretailer met thuspasservice (exit 2019)</div>
-        </a>
+      <div class="portfolio-card" data-type="direct">
+        <img class="portfolio-card__logo" src="https://cdn.prod.website-files.com/64ef52d4e63f78db8ad33967/652d01a0c5dd1735ccb7cd17_Rectangle%2035.png" alt="Dealroom">
+        <div class="portfolio-card__name">Dealroom</div>
+        <div class="portfolio-card__desc" data-en="The leading data platform for tracking startups, venture capital, and tech ecosystems." data-nl="Het toonaangevende dataplatform voor het volgen van startups, VC, en tech-ecosystemen.">The leading data platform for tracking startups, venture capital, and tech ecosystems.</div>
+        <span class="portfolio-card__tag portfolio-card__tag--direct">Direct</span>
       </div>
-    </div>
-  </section>
 
-  <!-- ===== VOCCP PORTFOLIO ===== -->
-  <section class="section-grey">
-    <div class="container">
-      <p class="section-label" data-nl="VOC Capital Partners" data-en="VOC Capital Partners">VOC Capital Partners</p>
-      <h2 class="section-title" data-nl="VOCCP Portfolio" data-en="VOCCP Portfolio">VOCCP Portfolio</h2>
-      <p class="section-intro" data-nl="Historische participaties vanuit VOC Capital Partners." data-en="Historical portfolio participations from VOC Capital Partners.">Historische participaties vanuit VOC Capital Partners.</p>
-
-      <div class="voccp-grid">
-        <article class="voccp-card">
-          <a href="https://heralife.nl/" target="_blank" rel="noopener noreferrer" class="voccp-card-img-link" aria-label="Bezoek website van Hera Life">
-            <img src="https://cdn.prod.website-files.com/64ef52d4e63f78db8ad33967/6717bede7953541c754e6bd2_Rectangle.svg" alt="Hera Life" class="voccp-card-img" loading="lazy">
-          </a>
-          <h4>Hera Life</h4>
-          <p data-nl="Gespecialiseerde verzekeraar in overlijdensrisicoverzekeringen met een klantgerichte en transparante aanpak via onafhankelijke adviseurs." data-en="Specialised life insurer focused on term-life products with a customer-centric, transparent approach through independent advisors.">Gespecialiseerde verzekeraar in overlijdensrisicoverzekeringen met een klantgerichte en transparante aanpak via onafhankelijke adviseurs.</p>
-          <p class="voccp-meta" data-nl="VOC Capital Partners investeerder sinds 2018." data-en="VOC Capital Partners investor since 2018.">VOC Capital Partners investeerder sinds 2018.</p>
-        </article>
-
-        <article class="voccp-card">
-          <a href="https://minibrew.io/nl?srsltid=AfmBOooiEltyZbHBihDSfO_i1gMLJbeI3Jxa2iYVM3TxBrjY0oIlv7Su" target="_blank" rel="noopener noreferrer" class="voccp-card-img-link" aria-label="Bezoek website van Minibrew">
-            <img src="https://cdn.prod.website-files.com/64ef52d4e63f78db8ad33967/671791134475878254d32a53_mini%20brew%20main%20image%20webstie.png" alt="Minibrew" class="voccp-card-img" loading="lazy">
-          </a>
-          <h4>Minibrew</h4>
-          <p data-nl="Ontwikkelde een thuisbrouwsysteem met app waarmee consumenten kwalitatief bier kunnen brouwen en volgen." data-en="Developed an at-home brewing system with app integration, enabling consumers to brew and monitor quality beer.">Ontwikkelde een thuisbrouwsysteem met app waarmee consumenten kwalitatief bier kunnen brouwen en volgen.</p>
-          <p class="voccp-meta" data-nl="VOC Capital Partners investeerder." data-en="VOC Capital Partners investor.">VOC Capital Partners investeerder.</p>
-        </article>
-
-        <article class="voccp-card">
-          <a href="https://www.seniorservice.nl/" target="_blank" rel="noopener noreferrer" class="voccp-card-img-link" aria-label="Bezoek website van Senior Service">
-            <img src="https://cdn.prod.website-files.com/64ef52d4e63f78db8ad33967/6717befe33a4b965b1e46710_Rectangle%20(1).svg" alt="Senior Service" class="voccp-card-img" loading="lazy">
-          </a>
-          <h4>Senior Service</h4>
-          <p data-nl="Mantelzorgplatform met landelijke dekking dat mantelzorgers koppelt aan patiënten en familie ondersteunt met communicatie." data-en="Nationwide caregiving platform connecting caregivers to patients while supporting family communication.">Mantelzorgplatform met landelijke dekking dat mantelzorgers koppelt aan patiënten en familie ondersteunt met communicatie.</p>
-          <p class="voccp-meta" data-nl="VOC Capital Partners investeerder sinds 2015." data-en="VOC Capital Partners investor since 2015.">VOC Capital Partners investeerder sinds 2015.</p>
-        </article>
-
-        <article class="voccp-card">
-          <a href="https://studyportals.com/" target="_blank" rel="noopener noreferrer" class="voccp-card-img-link" aria-label="Bezoek website van Studyportals">
-            <img src="https://cdn.prod.website-files.com/64ef52d4e63f78db8ad33967/6717908241736a86d66bf169_Study%20portals%20main%20image%20website.png" alt="Studyportals" class="voccp-card-img" loading="lazy">
-          </a>
-          <h4>Studyportals</h4>
-          <p data-nl="Internationaal opleidingsplatform waar studenten opleidingen vergelijken en universiteiten kwalitatieve leads ontvangen." data-en="International education platform where students compare programmes and universities receive qualified leads.">Internationaal opleidingsplatform waar studenten opleidingen vergelijken en universiteiten kwalitatieve leads ontvangen.</p>
-          <p class="voccp-meta" data-nl="VOC Capital Partners investeerder sinds 2010." data-en="VOC Capital Partners investor since 2010.">VOC Capital Partners investeerder sinds 2010.</p>
-        </article>
-
-        <article class="voccp-card">
-          <a href="https://spheremall.com/" target="_blank" rel="noopener noreferrer" class="voccp-card-img-link" aria-label="Bezoek website van SphereMall">
-            <img src="https://cdn.prod.website-files.com/64ef52d4e63f78db8ad33967/67178fa3f25617e2c12ef8d1_SphereMall%20main%20image%20webstie.png" alt="SphereMall" class="voccp-card-img" loading="lazy">
-          </a>
-          <h4>SphereMall</h4>
-          <p data-nl="Intelligent e-commerce platform voor complexe webshops met sterke BI-functionaliteit en integraties met bestaande systemen." data-en="Intelligent e-commerce platform for complex webshops with strong BI capabilities and deep system integrations.">Intelligent e-commerce platform voor complexe webshops met sterke BI-functionaliteit en integraties met bestaande systemen.</p>
-          <p class="voccp-meta" data-nl="VOC Capital Partners investeerder sinds 2016." data-en="VOC Capital Partners investor since 2016.">VOC Capital Partners investeerder sinds 2016.</p>
-        </article>
-
-        <article class="voccp-card">
-          <a href="https://studyflow.nl/" target="_blank" rel="noopener noreferrer" class="voccp-card-img-link" aria-label="Bezoek website van Studyflow">
-            <img src="https://cdn.prod.website-files.com/64ef52d4e63f78db8ad33967/67178f66ffd7daf1950d9504_Study%20flow%20main%20image%20webstie.png" alt="Studyflow" class="voccp-card-img" loading="lazy">
-          </a>
-          <h4>Studyflow</h4>
-          <p data-nl="E-learningplatform voor middelbare scholen met eigen content en distributie van lesmateriaal naar leerlingen." data-en="E-learning platform for secondary schools offering proprietary content and lesson distribution workflows.">E-learningplatform voor middelbare scholen met eigen content en distributie van lesmateriaal naar leerlingen.</p>
-          <p class="voccp-meta" data-nl="VOC Capital Partners investeerder sinds 2016." data-en="VOC Capital Partners investor since 2016.">VOC Capital Partners investeerder sinds 2016.</p>
-        </article>
-
-        <article class="voccp-card">
-          <a href="https://cleeng.com/" target="_blank" rel="noopener noreferrer" class="voccp-card-img-link" aria-label="Bezoek website van Cleeng">
-            <img src="https://cdn.prod.website-files.com/64ef52d4e63f78db8ad33967/671789a1300215278d6cbe66_Cleeng%20main%20image%20webstie.png" alt="Cleeng" class="voccp-card-img" loading="lazy">
-          </a>
-          <h4>Cleeng</h4>
-          <p data-nl="Platform voor monetisatie van videocontent via abonnementen en pay-per-view, met focus op transactieverwerking." data-en="Video-content monetisation platform for subscriptions and pay-per-view, focused on transaction handling.">Platform voor monetisatie van videocontent via abonnementen en pay-per-view, met focus op transactieverwerking.</p>
-          <p class="voccp-meta" data-nl="VOC Capital Partners investeerder sinds 2016." data-en="VOC Capital Partners investor since 2016.">VOC Capital Partners investeerder sinds 2016.</p>
-        </article>
-
-        <article class="voccp-card">
-          <a href="https://weprevent.nl/" target="_blank" rel="noopener noreferrer" class="voccp-card-img-link" aria-label="Bezoek website van WePrevent">
-            <img src="https://cdn.prod.website-files.com/64ef52d4e63f78db8ad33967/67178b8291fcff9b1740bb52_WePrevent%20main%20image%20webstie.png" alt="WePrevent" class="voccp-card-img" loading="lazy">
-          </a>
-          <h4>WePrevent</h4>
-          <p data-nl="Aanbieder van preventieve beveiligingsoplossingen met live camerabewaking en snelle koppeling naar politie en alarmcentrales." data-en="Provider of preventive security solutions with live camera monitoring and rapid links to police and alarm centers.">Aanbieder van preventieve beveiligingsoplossingen met live camerabewaking en snelle koppeling naar politie en alarmcentrales.</p>
-          <p class="voccp-meta" data-nl="VOC Capital Partners investeerder sinds 2015." data-en="VOC Capital Partners investor since 2015.">VOC Capital Partners investeerder sinds 2015.</p>
-        </article>
+      <div class="portfolio-card" data-type="direct">
+        <img class="portfolio-card__logo" src="https://cdn.prod.website-files.com/64ef52d4e63f78db8ad33967/68e4f666d54bd090810713b0_carv.png" alt="Carv">
+        <div class="portfolio-card__name">Carv</div>
+        <div class="portfolio-card__desc" data-en="AI recruitment platform that automates admin work for recruiters." data-nl="AI-recruitmentplatform dat administratief werk voor recruiters automatiseert.">AI recruitment platform that automates admin work for recruiters.</div>
+        <span class="portfolio-card__tag portfolio-card__tag--direct">Direct</span>
       </div>
-    </div>
-  </section>
 
-  <!-- CTA -->
-  <div class="cta-banner">
-    <div class="container">
-      <h2 data-nl="Vragen? Neem contact met ons op" data-en="Questions? Get in touch">Vragen? Neem contact met ons op</h2>
-      <p data-nl="Wij staan graag voor u klaar." data-en="We are happy to help you.">Wij staan graag voor u klaar.</p>
-      <a href="contact.html" class="btn btn-primary" data-nl="Neem Contact Op" data-en="Contact Us">Neem Contact Op</a>
+      <div class="portfolio-card" data-type="direct">
+        <img class="portfolio-card__logo" src="https://cdn.prod.website-files.com/64ef52d4e63f78db8ad33967/6555ae75959448b064e10965_Colect_logo_juist-min.png" alt="Colect">
+        <div class="portfolio-card__name">Colect</div>
+        <div class="portfolio-card__desc" data-en="B2B e-commerce platform digitizing wholesale ordering for fashion and lifestyle brands." data-nl="B2B e-commerce platform dat wholesale ordering digitaliseert voor mode- en lifestyle-merken.">B2B e-commerce platform digitizing wholesale ordering for fashion and lifestyle brands.</div>
+        <span class="portfolio-card__tag portfolio-card__tag--direct">Direct</span>
+      </div>
+
+      <div class="portfolio-card" data-type="direct">
+        <img class="portfolio-card__logo" src="https://cdn.prod.website-files.com/64ef52d4e63f78db8ad33967/6555ae7436161867d2702cae_Image_(8).png" alt="Equalture">
+        <div class="portfolio-card__name">Equalture</div>
+        <div class="portfolio-card__desc" data-en="Game-based assessments for bias-free hiring. Making recruitment fairer." data-nl="Game-based assessments voor eerlijke werving. Maakt recruitment eerlijker.">Game-based assessments for bias-free hiring. Making recruitment fairer.</div>
+        <span class="portfolio-card__tag portfolio-card__tag--direct">Direct</span>
+      </div>
+
+      <div class="portfolio-card" data-type="direct">
+        <img class="portfolio-card__logo" src="https://cdn.prod.website-files.com/64ef52d4e63f78db8ad33967/684ff440d3f2613701f63c3e_Aquablue%20portfolio.png" alt="Aquablu">
+        <div class="portfolio-card__name">Aquablu</div>
+        <div class="portfolio-card__desc" data-en="Sustainable water purification solutions. Making clean water accessible globally." data-nl="Duurzame waterzuiveringsoplossingen. Maakt schoon water wereldwijd toegankelijk.">Sustainable water purification solutions. Making clean water accessible globally.</div>
+        <span class="portfolio-card__tag portfolio-card__tag--direct">Direct</span>
+      </div>
+
+      <div class="portfolio-card" data-type="direct">
+        <img class="portfolio-card__logo" src="https://cdn.prod.website-files.com/64ef52d4e63f78db8ad33967/67e4567a6b24aa0a940cb63f_branial.jpg" alt="Brainial">
+        <div class="portfolio-card__name">Brainial</div>
+        <div class="portfolio-card__desc" data-en="AI-powered software for writing and winning public tenders." data-nl="AI-software voor het schrijven en winnen van aanbestedingen.">AI-powered software for writing and winning public tenders.</div>
+        <span class="portfolio-card__tag portfolio-card__tag--direct">Direct</span>
+      </div>
+
+      <div class="portfolio-card" data-type="direct">
+        <div class="portfolio-card__logo portfolio-card__initials">SW</div>
+        <div class="portfolio-card__name">Swishfund</div>
+        <div class="portfolio-card__desc" data-en="Fast and flexible SME financing. Helping small businesses access growth capital." data-nl="Snelle en flexibele MKB-financiering. Helpt MKB-bedrijven groeien.">Fast and flexible SME financing. Helping small businesses access growth capital.</div>
+        <span class="portfolio-card__tag portfolio-card__tag--direct">Direct</span>
+      </div>
+
+      <div class="portfolio-card" data-type="direct">
+        <div class="portfolio-card__logo portfolio-card__initials">CC</div>
+        <div class="portfolio-card__name">Creditchecken</div>
+        <div class="portfolio-card__desc" data-en="Credit score insights for consumers. Transparency in financial health." data-nl="Kredietwaardigheid inzicht voor consumenten. Transparantie in financiële gezondheid.">Credit score insights for consumers. Transparency in financial health.</div>
+        <span class="portfolio-card__tag portfolio-card__tag--direct">Direct</span>
+      </div>
+
+      <div class="portfolio-card" data-type="direct">
+        <div class="portfolio-card__logo portfolio-card__initials">FO</div>
+        <div class="portfolio-card__name">Focus</div>
+        <div class="portfolio-card__desc" data-en="AI-powered patent intelligence platform for R&D teams." data-nl="AI-gedreven patent intelligence platform voor R&D-teams.">AI-powered patent intelligence platform for R&D teams.</div>
+        <span class="portfolio-card__tag portfolio-card__tag--direct">Direct</span>
+      </div>
+
+      <div class="portfolio-card" data-type="direct">
+        <div class="portfolio-card__logo portfolio-card__initials">GR</div>
+        <div class="portfolio-card__name">Grantific</div>
+        <div class="portfolio-card__desc" data-en="Digital platform streamlining subsidy applications for businesses." data-nl="Digitaal platform dat subsidieaanvragen stroomlijnt voor bedrijven.">Digital platform streamlining subsidy applications for businesses.</div>
+        <span class="portfolio-card__tag portfolio-card__tag--direct">Direct</span>
+      </div>
+
+      <div class="portfolio-card" data-type="direct">
+        <div class="portfolio-card__logo portfolio-card__initials">IX</div>
+        <div class="portfolio-card__name">IXXI</div>
+        <div class="portfolio-card__desc" data-en="Modular wall art platform. Active in 30+ countries worldwide." data-nl="Modulaire wanddecoratie. Actief in 30+ landen wereldwijd.">Modular wall art platform. Active in 30+ countries worldwide.</div>
+        <span class="portfolio-card__tag portfolio-card__tag--direct">Direct</span>
+      </div>
+
+      <div class="portfolio-card" data-type="direct">
+        <div class="portfolio-card__logo portfolio-card__initials">LP</div>
+        <div class="portfolio-card__name">Loop</div>
+        <div class="portfolio-card__desc" data-en="Biodegradable coffins. Pioneering sustainable end-of-life solutions." data-nl="Biologisch afbreekbare doodskisten. Pionier in duurzame uitvaartoplossingen.">Biodegradable coffins. Pioneering sustainable end-of-life solutions.</div>
+        <span class="portfolio-card__tag portfolio-card__tag--direct">Direct</span>
+      </div>
+
+      <div class="portfolio-card" data-type="direct">
+        <div class="portfolio-card__logo portfolio-card__initials">MM</div>
+        <div class="portfolio-card__name">Mama's Maaltijden</div>
+        <div class="portfolio-card__desc" data-en="Market leader in fresh chilled meals in the Netherlands." data-nl="Marktleider in koelverse maaltijden in Nederland.">Market leader in fresh chilled meals in the Netherlands.</div>
+        <span class="portfolio-card__tag portfolio-card__tag--direct">Direct</span>
+      </div>
+
+      <div class="portfolio-card" data-type="direct">
+        <div class="portfolio-card__logo portfolio-card__initials">ZK</div>
+        <div class="portfolio-card__name">Zkr.</div>
+        <div class="portfolio-card__desc" data-en="Credit solutions platform for consumers and businesses." data-nl="Kredietoplossingen platform voor consumenten en bedrijven.">Credit solutions platform for consumers and businesses.</div>
+        <span class="portfolio-card__tag portfolio-card__tag--direct">Direct</span>
+      </div>
+
+      <div class="portfolio-card" data-type="direct">
+        <div class="portfolio-card__logo portfolio-card__initials">BB</div>
+        <div class="portfolio-card__name">Bright Bird</div>
+        <div class="portfolio-card__desc" data-en="Educational technology platform." data-nl="Educatief technologieplatform.">Educational technology platform.</div>
+        <span class="portfolio-card__tag portfolio-card__tag--direct">Direct</span>
+      </div>
+
+      <div class="portfolio-card" data-type="direct">
+        <div class="portfolio-card__logo portfolio-card__initials">LO</div>
+        <div class="portfolio-card__name">Liquido d'Oro</div>
+        <div class="portfolio-card__desc" data-en="Premium Italian olive oil brand." data-nl="Premium Italiaans olijfolie merk.">Premium Italian olive oil brand.</div>
+        <span class="portfolio-card__tag portfolio-card__tag--direct">Direct</span>
+      </div>
+
+      <div class="portfolio-card" data-type="direct">
+        <div class="portfolio-card__logo portfolio-card__initials">AL</div>
+        <div class="portfolio-card__name">Apollo Lane</div>
+        <div class="portfolio-card__desc" data-en="Investment vehicle of Pieter Schoen." data-nl="Investeringsvehikel van Pieter Schoen.">Investment vehicle of Pieter Schoen.</div>
+        <span class="portfolio-card__tag portfolio-card__tag--direct">Direct</span>
+      </div>
+
+      <div class="portfolio-card" data-type="direct">
+        <div class="portfolio-card__logo portfolio-card__initials">ME</div>
+        <div class="portfolio-card__name">Mega</div>
+        <div class="portfolio-card__desc" data-en="Retail operations." data-nl="Retailactiviteiten.">Retail operations.</div>
+        <span class="portfolio-card__tag portfolio-card__tag--direct">Direct</span>
+      </div>
+
+      <!-- FUND PARTNERS -->
+      <div class="portfolio-card" data-type="fund" id="funds">
+        <div class="portfolio-card__logo portfolio-card__initials portfolio-card__initials--fund">IV</div>
+        <div class="portfolio-card__name">Insiders Ventures</div>
+        <div class="portfolio-card__desc" data-en="Founder-fueled fund. Pre-seed and seed investments in European tech." data-nl="Door founders aangedreven fonds. Pre-seed en seed investeringen in Europese tech.">Founder-fueled fund. Pre-seed and seed investments in European tech.</div>
+        <div style="display:flex; gap:6px; flex-wrap:wrap; margin-top:4px">
+          <span class="portfolio-card__tag portfolio-card__tag--fund">Europe</span>
+          <span class="portfolio-card__tag portfolio-card__tag--fund">AI / Tech</span>
+        </div>
+      </div>
+
+      <div class="portfolio-card" data-type="fund">
+        <div class="portfolio-card__logo portfolio-card__initials portfolio-card__initials--fund">S9</div>
+        <div class="portfolio-card__name">Sky9 Capital</div>
+        <div class="portfolio-card__desc" data-en="MVP Fund II & Fund V. Investing in AI and technology across Asia." data-nl="MVP Fund II & Fund V. Investeren in AI en technologie in Azië.">MVP Fund II & Fund V. Investing in AI and technology across Asia.</div>
+        <div style="display:flex; gap:6px; flex-wrap:wrap; margin-top:4px">
+          <span class="portfolio-card__tag portfolio-card__tag--fund">Asia</span>
+          <span class="portfolio-card__tag portfolio-card__tag--fund">AI / Tech</span>
+        </div>
+      </div>
+
+      <div class="portfolio-card" data-type="fund">
+        <div class="portfolio-card__logo portfolio-card__initials portfolio-card__initials--fund">SL</div>
+        <div class="portfolio-card__name">Slingshot Ventures</div>
+        <div class="portfolio-card__desc" data-en="Fund II & III. European technology investments." data-nl="Fund II & III. Europese technologie-investeringen.">Fund II & III. European technology investments.</div>
+        <div style="display:flex; gap:6px; flex-wrap:wrap; margin-top:4px">
+          <span class="portfolio-card__tag portfolio-card__tag--fund">Europe</span>
+          <span class="portfolio-card__tag portfolio-card__tag--fund">Tech</span>
+        </div>
+      </div>
+
+      <div class="portfolio-card" data-type="fund">
+        <div class="portfolio-card__logo portfolio-card__initials portfolio-card__initials--fund">GH</div>
+        <div class="portfolio-card__name">Greyhound Capital</div>
+        <div class="portfolio-card__desc" data-en="Partners & Technology funds. European tech growth." data-nl="Partners & Technology fondsen. Europese tech groei.">Partners & Technology funds. European tech growth.</div>
+        <div style="display:flex; gap:6px; flex-wrap:wrap; margin-top:4px">
+          <span class="portfolio-card__tag portfolio-card__tag--fund">Europe</span>
+          <span class="portfolio-card__tag portfolio-card__tag--fund">Tech</span>
+        </div>
+      </div>
+
+      <div class="portfolio-card" data-type="fund">
+        <div class="portfolio-card__logo portfolio-card__initials portfolio-card__initials--fund">FB</div>
+        <div class="portfolio-card__name">Forbion</div>
+        <div class="portfolio-card__desc" data-en="Growth Fund & Capital IV/V. European life sciences investments." data-nl="Growth Fund & Capital IV/V. Europese life sciences investeringen.">Growth Fund & Capital IV/V. European life sciences investments.</div>
+        <div style="display:flex; gap:6px; flex-wrap:wrap; margin-top:4px">
+          <span class="portfolio-card__tag portfolio-card__tag--fund">Europe</span>
+          <span class="portfolio-card__tag portfolio-card__tag--fund">Life Sciences</span>
+        </div>
+      </div>
+
+      <div class="portfolio-card" data-type="fund">
+        <div class="portfolio-card__logo portfolio-card__initials portfolio-card__initials--fund">AR</div>
+        <div class="portfolio-card__name">Archipelago</div>
+        <div class="portfolio-card__desc" data-en="Asia Focus Fund I & II. Growth investments in Asia." data-nl="Asia Focus Fund I & II. Groei-investeringen in Azië.">Asia Focus Fund I & II. Growth investments in Asia.</div>
+        <div style="display:flex; gap:6px; flex-wrap:wrap; margin-top:4px">
+          <span class="portfolio-card__tag portfolio-card__tag--fund">Asia</span>
+          <span class="portfolio-card__tag portfolio-card__tag--fund">Growth</span>
+        </div>
+      </div>
+
+      <div class="portfolio-card" data-type="fund">
+        <div class="portfolio-card__logo portfolio-card__initials portfolio-card__initials--fund">IN</div>
+        <div class="portfolio-card__name">Integra</div>
+        <div class="portfolio-card__desc" data-en="Fund I & II. European buyout investments." data-nl="Fund I & II. Europese buyout-investeringen.">Fund I & II. European buyout investments.</div>
+        <div style="display:flex; gap:6px; flex-wrap:wrap; margin-top:4px">
+          <span class="portfolio-card__tag portfolio-card__tag--fund">Europe</span>
+          <span class="portfolio-card__tag portfolio-card__tag--fund">Buyout</span>
+        </div>
+      </div>
+
+      <div class="portfolio-card" data-type="fund">
+        <div class="portfolio-card__logo portfolio-card__initials portfolio-card__initials--fund">AS</div>
+        <div class="portfolio-card__name">ALS</div>
+        <div class="portfolio-card__desc" data-en="Fund I–VI. European mixed investment strategy." data-nl="Fund I–VI. Europese gemengde investeringsstrategie.">Fund I–VI. European mixed investment strategy.</div>
+        <div style="display:flex; gap:6px; flex-wrap:wrap; margin-top:4px">
+          <span class="portfolio-card__tag portfolio-card__tag--fund">Europe</span>
+          <span class="portfolio-card__tag portfolio-card__tag--fund">Mixed</span>
+        </div>
+      </div>
+
+      <div class="portfolio-card" data-type="fund">
+        <div class="portfolio-card__logo portfolio-card__initials portfolio-card__initials--fund">WM</div>
+        <div class="portfolio-card__name">WMP</div>
+        <div class="portfolio-card__desc" data-en="Global Secondaries & PE Pool I/II. Secondary market investments." data-nl="Global Secondaries & PE Pool I/II. Secundaire markt investeringen.">Global Secondaries & PE Pool I/II. Secondary market investments.</div>
+        <div style="display:flex; gap:6px; flex-wrap:wrap; margin-top:4px">
+          <span class="portfolio-card__tag portfolio-card__tag--fund">Global</span>
+          <span class="portfolio-card__tag portfolio-card__tag--fund">Secondaries</span>
+        </div>
+      </div>
+
     </div>
   </div>
+</section>
 
-  <footer>
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <a href="index.html" class="nav-logo" style="color:white;">
-            <img src="https://cdn.prod.website-files.com/64eccea52a843067f3f921f5/6537e6a56e33669aa1f856d7_Group%20(7).png" alt="Shoe Investments" height="28" style="height:28px;width:auto;">
-          </a>
-          <p data-nl="De meest ondernemende investeringsmaatschappij van Nederland." data-en="The most entrepreneurial investment company in the Netherlands.">De meest ondernemende investeringsmaatschappij van Nederland.</p>
-        </div>
-        <div class="footer-col">
-          <h4 data-nl="Pagina's" data-en="Pages">Pagina's</h4>
-          <a href="over-ons.html" data-nl="Over Ons" data-en="About Us">Over Ons</a>
-          <a href="team.html">Team</a>
-          <a href="esg.html">ESG</a>
-          <a href="portfolio.html">Portfolio</a>
-          <a href="fondsen.html" data-nl="Fondsen" data-en="Funds">Fondsen</a>
-        </div>
-        <div class="footer-col">
-          <h4 data-nl="Meer" data-en="More">Meer</h4>
-          <a href="stage.html" data-nl="Stage" data-en="Internship">Stage</a>
-          <a href="actueel.html" data-nl="Actueel" data-en="News">Actueel</a>
-          <a href="contact.html">Contact</a>
-        </div>
-        <div class="footer-col">
-          <h4 data-nl="Contact" data-en="Contact">Contact</h4>
-          <a href="mailto:info@shoeinvestments.nl">info@shoeinvestments.nl</a>
-          <a href="tel:+31611210386">+31 6 11210386</a>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p data-nl="© 2025 Shoe Investments. Alle rechten voorbehouden." data-en="© 2025 Shoe Investments. All rights reserved.">© 2025 Shoe Investments. Alle rechten voorbehouden.</p>
-        <p style="color:rgba(255,255,255,0.3);font-size:0.72rem;" data-nl="Rotterdam, Nederland" data-en="Rotterdam, Netherlands">Rotterdam, Nederland</p>
-              <div class="footer-social">
-        <a href="https://www.linkedin.com/company/shoe-investments/" target="_blank" rel="noopener" aria-label="LinkedIn">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-        </a>
-      </div>
-      </div>
+<!-- ===== CTA BAND ===== -->
+<section class="cta-band">
+  <div class="container--narrow">
+    <h2 data-en="Interested in co-investing?" data-nl="Geinteresseerd in mee-investeren?">Interested in co-investing?</h2>
+    <p data-en="We're always looking for exceptional fund managers and ambitious founders." data-nl="We zijn altijd op zoek naar uitzonderlijke fund managers en ambitieuze founders.">We're always looking for exceptional fund managers and ambitious founders.</p>
+    <a href="contact.html" class="cta-band__btn" data-en="Get in Touch" data-nl="Neem Contact Op">Get in Touch</a>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__brand">
+      <a href="index.html" class="nav__logo" style="margin-bottom:8px">
+        <img src="assets/logo-shoe.svg" alt="Shoe Investments" style="height:24px">
+        SHOE INVESTMENTS
+      </a>
+      <p data-en="A Dutch family office with global venture reach. Based in Rotterdam since 2018." data-nl="Een Nederlandse family office met wereldwijd bereik. Gevestigd in Rotterdam sinds 2018.">A Dutch family office with global venture reach. Based in Rotterdam since 2018.</p>
     </div>
-  </footer>
-</div>
+    <div class="footer__col">
+      <h4>Invest</h4>
+      <a href="portfolio.html" data-en="Portfolio" data-nl="Portfolio">Portfolio</a>
+      <a href="portfolio.html#funds" data-en="Funds" data-nl="Fondsen">Funds</a>
+      <a href="about.html" data-en="Our Approach" data-nl="Onze Aanpak">Our Approach</a>
+    </div>
+    <div class="footer__col">
+      <h4>Company</h4>
+      <a href="about.html" data-en="About" data-nl="Over Ons">About</a>
+      <a href="team.html" data-en="Team" data-nl="Team">Team</a>
+      <a href="esg.html" data-en="ESG" data-nl="ESG">ESG</a>
+    </div>
+    <div class="footer__col">
+      <h4>Connect</h4>
+      <a href="contact.html" data-en="Contact" data-nl="Contact">Contact</a>
+      <a href="mailto:info@shoeinvestments.nl">info@shoeinvestments.nl</a>
+      <a href="https://nl.linkedin.com/company/shoe-investments" target="_blank">LinkedIn</a>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <span>© 2026 Shoe Investments. Rotterdam, The Netherlands.</span>
+    <span data-en="The family office of Pieter Schoen" data-nl="De family office van Pieter Schoen">The family office of Pieter Schoen</span>
+  </div>
+</footer>
 
 <script src="js/main.js"></script>
-<script src="js/portfolio-filter.js"></script>
 </body>
 </html>
