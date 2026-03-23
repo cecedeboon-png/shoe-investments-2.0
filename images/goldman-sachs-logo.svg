@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 280" width="280" height="280">
+  <rect width="280" height="280" fill="#6E9ABF"/>
+  <text x="28" y="100"
+    font-family="Georgia, 'Times New Roman', Times, serif"
+    font-size="52"
+    font-weight="400"
+    fill="#ffffff"
+    letter-spacing="0.5">Goldman</text>
+  <text x="28" y="160"
+    font-family="Georgia, 'Times New Roman', Times, serif"
+    font-size="52"
+    font-weight="400"
+    fill="#ffffff"
+    letter-spacing="0.5">Sachs</text>
+</svg>
