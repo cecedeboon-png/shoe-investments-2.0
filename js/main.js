@@ -54,7 +54,13 @@ function applyLang(lang) {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
+        // Delay by one frame so the browser renders opacity:0 first,
+        // then transitions to opacity:1 — avoids same-frame skip
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            entry.target.classList.add('visible');
+          });
+        });
         observer.unobserve(entry.target);
       }
     });
