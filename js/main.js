@@ -20,7 +20,7 @@
     'nav-contact':     { nl: 'Neem Contact Op', en: 'Contact Us' },
   };
 
-  let currentLang = localStorage.getItem('shoe-lang') || 'nl';
+  let currentLang = localStorage.getItem('shoe-lang') || 'en';
 
   function applyLanguage(lang) {
     currentLang = lang;
@@ -146,6 +146,40 @@
     });
   }
 
+  /* ---------- Sticky Nav Scroll ---------- */
+  function initScrollNav() {
+    const navbar = document.querySelector('.navbar');
+    if (!navbar) return;
+
+    function onScroll() {
+      if (window.scrollY > 20) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+
+  /* ---------- Scroll fade-in animations ---------- */
+  function initScrollAnimations() {
+    const els = document.querySelectorAll('.fade-in');
+    if (!els.length) return;
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    els.forEach(el => observer.observe(el));
+  }
+
   /* ---------- Init ---------- */
   document.addEventListener('DOMContentLoaded', () => {
     initLangToggle();
@@ -154,6 +188,8 @@
     initSmoothScroll();
     initPortfolioImageRotator();
     setActiveNav();
+    initScrollNav();
+    initScrollAnimations();
   });
 
 })();
